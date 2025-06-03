@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project-pemvis", "project-pemvis\project-pemvis.csproj", "{068F995D-25E6-4827-A0C4-90A0330F7FCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{068F995D-25E6-4827-A0C4-90A0330F7FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068F995D-25E6-4827-A0C4-90A0330F7FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068F995D-25E6-4827-A0C4-90A0330F7FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068F995D-25E6-4827-A0C4-90A0330F7FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {901F6956-7EB7-42F5-975A-DB0FF561DCA4}
+	EndGlobalSection
+EndGlobal
