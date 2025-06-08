@@ -118,6 +118,7 @@
             toRegister.Size = new Size(280, 32);
             toRegister.TabIndex = 20;
             toRegister.Text = "Belum punya akun? Buat";
+            toRegister.Click += toRegister_Click;
             // 
             // pnlInvalid
             // 
@@ -150,7 +151,7 @@
             button1.Name = "button1";
             button1.Size = new Size(430, 59);
             button1.TabIndex = 19;
-            button1.Text = "Login";
+            button1.Text = "Masuk";
             button1.UseVisualStyleBackColor = true;
             button1.MouseEnter += button1_MouseEnter;
             button1.MouseLeave += button1_MouseLeave;
@@ -201,7 +202,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(568, 43);
             textBox2.TabIndex = 2;
-            textBox2.Text = "Enter Password";
+            textBox2.Text = "Msukkan Password";
             // 
             // panel4
             // 
@@ -239,7 +240,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(568, 43);
             textBox1.TabIndex = 2;
-            textBox1.Text = "Enter Username";
+            textBox1.Text = "Masukkan Username";
             // 
             // label5
             // 
@@ -267,9 +268,9 @@
             label1.Font = new Font("Segoe UI", 15F);
             label1.Location = new Point(559, 45);
             label1.Name = "label1";
-            label1.Size = new Size(122, 54);
+            label1.Size = new Size(139, 54);
             label1.TabIndex = 11;
-            label1.Text = "Login";
+            label1.Text = "Masuk";
             // 
             // label2
             // 

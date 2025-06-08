@@ -32,5 +32,17 @@ namespace project_pemvis
             button1.ForeColor = Color.White;
 
         }
+
+        private void toRegister_Click(object sender, EventArgs e)
+        {
+            // Membuat instance dari Form Register
+            Register registerForm = new Register();
+
+            // Menampilkan Form Register
+            registerForm.Show();
+
+            // Opsional: Menyembunyikan Form saat ini jika tidak diperlukan lagi
+            this.Hide();
+        }
     }
 }
