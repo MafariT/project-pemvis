@@ -32,40 +32,40 @@
             pnlLogo = new Panel();
             pictureBox3 = new PictureBox();
             pnlLogin = new Panel();
-            panel6 = new Panel();
-            panel8 = new Panel();
-            panel9 = new Panel();
-            textBox2 = new TextBox();
-            panel4 = new Panel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            textBox1 = new TextBox();
-            label5 = new Label();
-            label1 = new Label();
-            label2 = new Label();
+            toRegister = new Label();
+            btnDaftar = new Button();
             panel1 = new Panel();
             panel5 = new Panel();
             panel7 = new Panel();
-            textBox3 = new TextBox();
+            txtKonfirPassword = new TextBox();
+            panel6 = new Panel();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            txtEmail = new TextBox();
             panel10 = new Panel();
             panel11 = new Panel();
             panel12 = new Panel();
-            textBox4 = new TextBox();
+            txtPassword = new TextBox();
             label3 = new Label();
+            panel4 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            txtUsername = new TextBox();
             label4 = new Label();
-            toRegister = new Label();
-            button1 = new Button();
+            label5 = new Label();
+            label1 = new Label();
+            label2 = new Label();
             pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             pnlLogin.SuspendLayout();
-            panel6.SuspendLayout();
-            panel8.SuspendLayout();
-            panel4.SuspendLayout();
-            panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
+            panel8.SuspendLayout();
             panel10.SuspendLayout();
             panel11.SuspendLayout();
+            panel4.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLogo
@@ -92,7 +92,7 @@
             // 
             pnlLogin.BackColor = Color.FromArgb(30, 30, 30);
             pnlLogin.Controls.Add(toRegister);
-            pnlLogin.Controls.Add(button1);
+            pnlLogin.Controls.Add(btnDaftar);
             pnlLogin.Controls.Add(panel1);
             pnlLogin.Controls.Add(panel6);
             pnlLogin.Controls.Add(panel10);
@@ -109,6 +109,73 @@
             pnlLogin.Size = new Size(1100, 867);
             pnlLogin.TabIndex = 3;
             // 
+            // toRegister
+            // 
+            toRegister.AutoSize = true;
+            toRegister.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
+            toRegister.Location = new Point(427, 741);
+            toRegister.Name = "toRegister";
+            toRegister.Size = new Size(269, 32);
+            toRegister.TabIndex = 23;
+            toRegister.Text = "Sudah punya akun? Klik";
+            toRegister.Click += toRegister_Click;
+            // 
+            // btnDaftar
+            // 
+            btnDaftar.FlatAppearance.BorderColor = Color.Lime;
+            btnDaftar.FlatAppearance.BorderSize = 2;
+            btnDaftar.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 192, 0);
+            btnDaftar.FlatStyle = FlatStyle.Flat;
+            btnDaftar.Font = new Font("Segoe UI", 12F);
+            btnDaftar.ForeColor = Color.Lime;
+            btnDaftar.Location = new Point(350, 650);
+            btnDaftar.Name = "btnDaftar";
+            btnDaftar.Size = new Size(430, 59);
+            btnDaftar.TabIndex = 22;
+            btnDaftar.Text = "Daftar";
+            btnDaftar.UseVisualStyleBackColor = true;
+            btnDaftar.Click += btnDaftar_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(panel5);
+            panel1.Location = new Point(296, 484);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(600, 105);
+            panel1.TabIndex = 21;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(panel7);
+            panel5.Controls.Add(txtKonfirPassword);
+            panel5.Dock = DockStyle.Top;
+            panel5.Location = new Point(0, 0);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(600, 93);
+            panel5.TabIndex = 3;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.Location = new Point(16, 74);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(575, 5);
+            panel7.TabIndex = 4;
+            // 
+            // txtKonfirPassword
+            // 
+            txtKonfirPassword.BackColor = Color.FromArgb(30, 30, 30);
+            txtKonfirPassword.BorderStyle = BorderStyle.None;
+            txtKonfirPassword.Font = new Font("Segoe UI", 12F);
+            txtKonfirPassword.ForeColor = Color.Gray;
+            txtKonfirPassword.Location = new Point(16, 14);
+            txtKonfirPassword.Name = "txtKonfirPassword";
+            txtKonfirPassword.Size = new Size(568, 43);
+            txtKonfirPassword.TabIndex = 2;
+            txtKonfirPassword.Text = "Konfirmasi Password";
+            txtKonfirPassword.MouseEnter += txtKonfirPassword_MouseEnter;
+            txtKonfirPassword.MouseLeave += txtKonfirPassword_MouseLeave_1;
+            // 
             // panel6
             // 
             panel6.Controls.Add(panel8);
@@ -120,7 +187,7 @@
             // panel8
             // 
             panel8.Controls.Add(panel9);
-            panel8.Controls.Add(textBox2);
+            panel8.Controls.Add(txtEmail);
             panel8.Dock = DockStyle.Top;
             panel8.Location = new Point(0, 0);
             panel8.Name = "panel8";
@@ -135,17 +202,69 @@
             panel9.Size = new Size(575, 5);
             panel9.TabIndex = 4;
             // 
-            // textBox2
+            // txtEmail
             // 
-            textBox2.BackColor = Color.FromArgb(30, 30, 30);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.ForeColor = Color.Gray;
-            textBox2.Location = new Point(16, 14);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(568, 43);
-            textBox2.TabIndex = 2;
-            textBox2.Text = "Masukkan Email";
+            txtEmail.BackColor = Color.FromArgb(30, 30, 30);
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.Font = new Font("Segoe UI", 12F);
+            txtEmail.ForeColor = Color.Gray;
+            txtEmail.Location = new Point(16, 14);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(568, 43);
+            txtEmail.TabIndex = 2;
+            txtEmail.Text = "Masukkan Email";
+            txtEmail.MouseEnter += txtEmail_MouseEnter;
+            txtEmail.MouseLeave += txtEmail_MouseLeave;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(panel11);
+            panel10.Location = new Point(296, 377);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(600, 101);
+            panel10.TabIndex = 19;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(panel12);
+            panel11.Controls.Add(txtPassword);
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 0);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(600, 93);
+            panel11.TabIndex = 3;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.White;
+            panel12.Location = new Point(16, 74);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(575, 5);
+            panel12.TabIndex = 4;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BackColor = Color.FromArgb(30, 30, 30);
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Font = new Font("Segoe UI", 12F);
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.Location = new Point(16, 14);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(568, 43);
+            txtPassword.TabIndex = 2;
+            txtPassword.Text = "Masukkan Password";
+            txtPassword.MouseEnter += txtPassword_MouseEnter;
+            txtPassword.MouseLeave += txtPassword_MouseLeave_1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.Location = new Point(88, 524);
+            label3.Name = "label3";
+            label3.Size = new Size(205, 37);
+            label3.TabIndex = 20;
+            label3.Text = "Konfir Password";
             // 
             // panel4
             // 
@@ -158,7 +277,7 @@
             // panel2
             // 
             panel2.Controls.Add(panel3);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txtUsername);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -173,17 +292,27 @@
             panel3.Size = new Size(575, 5);
             panel3.TabIndex = 4;
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.BackColor = Color.FromArgb(30, 30, 30);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.ForeColor = Color.Gray;
-            textBox1.Location = new Point(16, 14);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(568, 43);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "Masukkan Username";
+            txtUsername.BackColor = Color.FromArgb(30, 30, 30);
+            txtUsername.BorderStyle = BorderStyle.None;
+            txtUsername.Font = new Font("Segoe UI", 12F);
+            txtUsername.ForeColor = Color.Gray;
+            txtUsername.Location = new Point(16, 14);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(568, 43);
+            txtUsername.TabIndex = 2;
+            txtUsername.Text = "Masukkan Username";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10F);
+            label4.Location = new Point(138, 398);
+            label4.Name = "label4";
+            label4.Size = new Size(128, 37);
+            label4.TabIndex = 18;
+            label4.Text = "Password";
             // 
             // label5
             // 
@@ -204,7 +333,6 @@
             label1.Size = new Size(339, 54);
             label1.TabIndex = 11;
             label1.Text = "Daftar Akun Anda";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -216,128 +344,6 @@
             label2.TabIndex = 12;
             label2.Text = "Username";
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(panel5);
-            panel1.Location = new Point(296, 484);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(600, 105);
-            panel1.TabIndex = 21;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(panel7);
-            panel5.Controls.Add(textBox3);
-            panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(0, 0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(600, 93);
-            panel5.TabIndex = 3;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.White;
-            panel7.Location = new Point(16, 74);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(575, 5);
-            panel7.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            textBox3.BackColor = Color.FromArgb(30, 30, 30);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Segoe UI", 12F);
-            textBox3.ForeColor = Color.Gray;
-            textBox3.Location = new Point(16, 14);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(568, 43);
-            textBox3.TabIndex = 2;
-            textBox3.Text = "Konfirmasi Password";
-            // 
-            // panel10
-            // 
-            panel10.Controls.Add(panel11);
-            panel10.Location = new Point(296, 377);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(600, 101);
-            panel10.TabIndex = 19;
-            // 
-            // panel11
-            // 
-            panel11.Controls.Add(panel12);
-            panel11.Controls.Add(textBox4);
-            panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(0, 0);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(600, 93);
-            panel11.TabIndex = 3;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = Color.White;
-            panel12.Location = new Point(16, 74);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(575, 5);
-            panel12.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            textBox4.BackColor = Color.FromArgb(30, 30, 30);
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Segoe UI", 12F);
-            textBox4.ForeColor = Color.Gray;
-            textBox4.Location = new Point(16, 14);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(568, 43);
-            textBox4.TabIndex = 2;
-            textBox4.Text = "Masukkan Password";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F);
-            label3.Location = new Point(88, 524);
-            label3.Name = "label3";
-            label3.Size = new Size(205, 37);
-            label3.TabIndex = 20;
-            label3.Text = "Konfir Password";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10F);
-            label4.Location = new Point(138, 398);
-            label4.Name = "label4";
-            label4.Size = new Size(128, 37);
-            label4.TabIndex = 18;
-            label4.Text = "Password";
-            // 
-            // toRegister
-            // 
-            toRegister.AutoSize = true;
-            toRegister.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
-            toRegister.Location = new Point(427, 741);
-            toRegister.Name = "toRegister";
-            toRegister.Size = new Size(269, 32);
-            toRegister.TabIndex = 23;
-            toRegister.Text = "Sudah punya akun? Klik";
-            toRegister.Click += toRegister_Click;
-            // 
-            // button1
-            // 
-            button1.FlatAppearance.BorderColor = Color.Lime;
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 192, 0);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.ForeColor = Color.Lime;
-            button1.Location = new Point(350, 650);
-            button1.Name = "button1";
-            button1.Size = new Size(430, 59);
-            button1.TabIndex = 22;
-            button1.Text = "Daftar";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -347,22 +353,23 @@
             Controls.Add(pnlLogo);
             Name = "Register";
             Text = "Register";
+            Load += Register_Load;
             pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             pnlLogin.ResumeLayout(false);
             pnlLogin.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             panel10.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -374,25 +381,25 @@
         private Panel panel6;
         private Panel panel8;
         private Panel panel9;
-        private TextBox textBox2;
+        private TextBox txtEmail;
         private Panel panel4;
         private Panel panel2;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox txtUsername;
         private Label label5;
         private Label label1;
         private Label label2;
         private Panel panel1;
         private Panel panel5;
         private Panel panel7;
-        private TextBox textBox3;
+        private TextBox txtKonfirPassword;
         private Panel panel10;
         private Panel panel11;
         private Panel panel12;
-        private TextBox textBox4;
+        private TextBox txtPassword;
         private Label label3;
         private Label label4;
         private Label toRegister;
-        private Button button1;
+        private Button btnDaftar;
     }
 }

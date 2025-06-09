@@ -35,17 +35,17 @@
             pnlLogin = new Panel();
             toRegister = new Label();
             pnlInvalid = new Panel();
-            label4 = new Label();
-            button1 = new Button();
+            lblInvalid = new Label();
+            btnMasuk = new Button();
             pictureBox2 = new PictureBox();
             panel6 = new Panel();
             panel8 = new Panel();
             panel9 = new Panel();
-            textBox2 = new TextBox();
+            txtPasswordLogin = new TextBox();
             panel4 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            txtEmailLogin = new TextBox();
             label5 = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -94,7 +94,7 @@
             // 
             pnlLogin.Controls.Add(toRegister);
             pnlLogin.Controls.Add(pnlInvalid);
-            pnlLogin.Controls.Add(button1);
+            pnlLogin.Controls.Add(btnMasuk);
             pnlLogin.Controls.Add(pictureBox2);
             pnlLogin.Controls.Add(panel6);
             pnlLogin.Controls.Add(panel4);
@@ -122,39 +122,40 @@
             // 
             // pnlInvalid
             // 
-            pnlInvalid.Controls.Add(label4);
+            pnlInvalid.Controls.Add(lblInvalid);
             pnlInvalid.Location = new Point(445, 471);
             pnlInvalid.Name = "pnlInvalid";
             pnlInvalid.Size = new Size(568, 55);
             pnlInvalid.TabIndex = 14;
             // 
-            // label4
+            // lblInvalid
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10F);
-            label4.ForeColor = Color.Brown;
-            label4.Location = new Point(184, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(178, 37);
-            label4.TabIndex = 5;
-            label4.Text = "Login Invalid!";
+            lblInvalid.AutoSize = true;
+            lblInvalid.Font = new Font("Segoe UI", 10F);
+            lblInvalid.ForeColor = Color.Brown;
+            lblInvalid.Location = new Point(184, 9);
+            lblInvalid.Name = "lblInvalid";
+            lblInvalid.Size = new Size(178, 37);
+            lblInvalid.TabIndex = 5;
+            lblInvalid.Text = "Login Invalid!";
             // 
-            // button1
+            // btnMasuk
             // 
-            button1.FlatAppearance.BorderColor = Color.Lime;
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 192, 0);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.ForeColor = Color.Lime;
-            button1.Location = new Point(514, 547);
-            button1.Name = "button1";
-            button1.Size = new Size(430, 59);
-            button1.TabIndex = 19;
-            button1.Text = "Masuk";
-            button1.UseVisualStyleBackColor = true;
-            button1.MouseEnter += button1_MouseEnter;
-            button1.MouseLeave += button1_MouseLeave;
+            btnMasuk.FlatAppearance.BorderColor = Color.Lime;
+            btnMasuk.FlatAppearance.BorderSize = 2;
+            btnMasuk.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 192, 0);
+            btnMasuk.FlatStyle = FlatStyle.Flat;
+            btnMasuk.Font = new Font("Segoe UI", 12F);
+            btnMasuk.ForeColor = Color.Lime;
+            btnMasuk.Location = new Point(514, 547);
+            btnMasuk.Name = "btnMasuk";
+            btnMasuk.Size = new Size(430, 59);
+            btnMasuk.TabIndex = 19;
+            btnMasuk.Text = "Masuk";
+            btnMasuk.UseVisualStyleBackColor = true;
+            btnMasuk.Click += btnMasuk_Click;
+            btnMasuk.MouseEnter += button1_MouseEnter;
+            btnMasuk.MouseLeave += button1_MouseLeave;
             // 
             // pictureBox2
             // 
@@ -177,7 +178,7 @@
             // panel8
             // 
             panel8.Controls.Add(panel9);
-            panel8.Controls.Add(textBox2);
+            panel8.Controls.Add(txtPasswordLogin);
             panel8.Dock = DockStyle.Top;
             panel8.Location = new Point(0, 0);
             panel8.Name = "panel8";
@@ -192,17 +193,19 @@
             panel9.Size = new Size(575, 5);
             panel9.TabIndex = 4;
             // 
-            // textBox2
+            // txtPasswordLogin
             // 
-            textBox2.BackColor = Color.FromArgb(30, 30, 30);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.ForeColor = Color.Gray;
-            textBox2.Location = new Point(16, 14);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(568, 43);
-            textBox2.TabIndex = 2;
-            textBox2.Text = "Msukkan Password";
+            txtPasswordLogin.BackColor = Color.FromArgb(30, 30, 30);
+            txtPasswordLogin.BorderStyle = BorderStyle.None;
+            txtPasswordLogin.Font = new Font("Segoe UI", 12F);
+            txtPasswordLogin.ForeColor = Color.Gray;
+            txtPasswordLogin.Location = new Point(16, 14);
+            txtPasswordLogin.Name = "txtPasswordLogin";
+            txtPasswordLogin.Size = new Size(568, 43);
+            txtPasswordLogin.TabIndex = 2;
+            txtPasswordLogin.Text = "Msukkan Password";
+            txtPasswordLogin.MouseEnter += txtPasswordLogin_MouseEnter;
+            txtPasswordLogin.MouseLeave += txtPasswordLogin_MouseLeave;
             // 
             // panel4
             // 
@@ -215,7 +218,7 @@
             // panel2
             // 
             panel2.Controls.Add(panel3);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txtEmailLogin);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -230,17 +233,19 @@
             panel3.Size = new Size(575, 5);
             panel3.TabIndex = 4;
             // 
-            // textBox1
+            // txtEmailLogin
             // 
-            textBox1.BackColor = Color.FromArgb(30, 30, 30);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.ForeColor = Color.Gray;
-            textBox1.Location = new Point(16, 14);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(568, 43);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "Masukkan Username";
+            txtEmailLogin.BackColor = Color.FromArgb(30, 30, 30);
+            txtEmailLogin.BorderStyle = BorderStyle.None;
+            txtEmailLogin.Font = new Font("Segoe UI", 12F);
+            txtEmailLogin.ForeColor = Color.Gray;
+            txtEmailLogin.Location = new Point(16, 14);
+            txtEmailLogin.Name = "txtEmailLogin";
+            txtEmailLogin.Size = new Size(568, 43);
+            txtEmailLogin.TabIndex = 2;
+            txtEmailLogin.Text = "Masukkan Email";
+            txtEmailLogin.MouseEnter += txtEmailLogin_MouseEnter;
+            txtEmailLogin.MouseLeave += txtEmailLogin_MouseLeave;
             // 
             // label5
             // 
@@ -276,11 +281,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F);
-            label2.Location = new Point(265, 197);
+            label2.Location = new Point(265, 196);
             label2.Name = "label2";
-            label2.Size = new Size(136, 37);
+            label2.Size = new Size(82, 37);
             label2.TabIndex = 12;
-            label2.Text = "Username";
+            label2.Text = "Email";
             // 
             // Login
             // 
@@ -323,17 +328,17 @@
         private Label label3;
         private Label toRegister;
         private Panel pnlInvalid;
-        private Label label4;
-        private Button button1;
+        private Label lblInvalid;
+        private Button btnMasuk;
         private PictureBox pictureBox2;
         private Panel panel6;
         private Panel panel8;
         private Panel panel9;
-        private TextBox textBox2;
+        private TextBox txtPasswordLogin;
         private Panel panel4;
         private Panel panel2;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox txtEmailLogin;
         private Label label5;
         private PictureBox pictureBox1;
         private Label label1;
