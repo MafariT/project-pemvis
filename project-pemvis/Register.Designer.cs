@@ -338,11 +338,12 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F);
-            label2.Location = new Point(138, 180);
+            label2.Location = new Point(145, 180);
             label2.Name = "label2";
-            label2.Size = new Size(136, 37);
+            label2.Size = new Size(88, 37);
             label2.TabIndex = 12;
-            label2.Text = "Username";
+            label2.Text = "Nama";
+            label2.Click += label2_Click;
             // 
             // Register
             // 

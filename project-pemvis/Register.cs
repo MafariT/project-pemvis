@@ -167,5 +167,10 @@ namespace project_pemvis
                 txtKonfirPassword.UseSystemPasswordChar = false;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
