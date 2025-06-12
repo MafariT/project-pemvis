@@ -245,7 +245,7 @@
             btnHapus.ForeColor = Color.White;
             btnHapus.Location = new Point(6, 268);
             btnHapus.Name = "btnHapus";
-            btnHapus.Size = new Size(460, 29);
+            btnHapus.Size = new Size(456, 29);
             btnHapus.TabIndex = 14;
             btnHapus.Text = "Hapus";
             btnHapus.UseVisualStyleBackColor = false;
