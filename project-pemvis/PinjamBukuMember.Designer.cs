@@ -250,7 +250,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1054, 792);
+            ClientSize = new Size(1054, 723);
             Controls.Add(FormPeminjaman);
             Controls.Add(lblSelamatDatang);
             Controls.Add(DaftarBuku);
