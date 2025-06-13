@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
             btnUpdateProfil = new Button();
-            textBoxAlamat = new TextBox();
-            textBoxNoHp = new TextBox();
-            textBoxNama = new TextBox();
+            txtAlamat = new TextBox();
+            txtNohp = new TextBox();
+            txtNama = new TextBox();
             lblAlamat = new Label();
             lblNama = new Label();
             grpProfil = new GroupBox();
@@ -40,23 +40,19 @@
             DaftarBuku = new GroupBox();
             dgvHistori = new DataGridView();
             Form = new GroupBox();
-            Aksi = new GroupBox();
-            btnReload = new Button();
-            btnSimpan = new Button();
-            btnEdit = new Button();
             btnCari = new Button();
-            btnHapus = new Button();
             textBoxJudul = new TextBox();
             lblJudul = new Label();
             panel1 = new Panel();
             btnProfil = new Button();
             btnDaftarBuku = new Button();
             pictureBox3 = new PictureBox();
+            txtTanggalLahir = new TextBox();
+            label1 = new Label();
             grpProfil.SuspendLayout();
             DaftarBuku.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistori).BeginInit();
             Form.SuspendLayout();
-            Aksi.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
@@ -67,64 +63,77 @@
             btnUpdateProfil.FlatStyle = FlatStyle.Popup;
             btnUpdateProfil.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdateProfil.ForeColor = Color.White;
-            btnUpdateProfil.Location = new Point(88, 147);
+            btnUpdateProfil.Location = new Point(142, 321);
+            btnUpdateProfil.Margin = new Padding(5, 5, 5, 5);
             btnUpdateProfil.Name = "btnUpdateProfil";
-            btnUpdateProfil.Size = new Size(276, 29);
+            btnUpdateProfil.Size = new Size(448, 46);
             btnUpdateProfil.TabIndex = 16;
             btnUpdateProfil.Text = "Update Profil";
             btnUpdateProfil.UseVisualStyleBackColor = false;
+            btnUpdateProfil.Click += btnUpdateProfil_Click;
             // 
-            // textBoxAlamat
+            // txtAlamat
             // 
-            textBoxAlamat.Location = new Point(88, 105);
-            textBoxAlamat.Name = "textBoxAlamat";
-            textBoxAlamat.Size = new Size(278, 27);
-            textBoxAlamat.TabIndex = 18;
+            txtAlamat.Location = new Point(217, 177);
+            txtAlamat.Margin = new Padding(5, 5, 5, 5);
+            txtAlamat.Multiline = true;
+            txtAlamat.Name = "txtAlamat";
+            txtAlamat.ScrollBars = ScrollBars.Vertical;
+            txtAlamat.Size = new Size(449, 60);
+            txtAlamat.TabIndex = 18;
             // 
-            // textBoxNoHp
+            // txtNohp
             // 
-            textBoxNoHp.Location = new Point(88, 69);
-            textBoxNoHp.Name = "textBoxNoHp";
-            textBoxNoHp.Size = new Size(278, 27);
-            textBoxNoHp.TabIndex = 17;
+            txtNohp.Location = new Point(217, 111);
+            txtNohp.Margin = new Padding(5, 5, 5, 5);
+            txtNohp.Name = "txtNohp";
+            txtNohp.Size = new Size(449, 39);
+            txtNohp.TabIndex = 17;
             // 
-            // textBoxNama
+            // txtNama
             // 
-            textBoxNama.Location = new Point(88, 32);
-            textBoxNama.Name = "textBoxNama";
-            textBoxNama.Size = new Size(278, 27);
-            textBoxNama.TabIndex = 16;
+            txtNama.Location = new Point(217, 55);
+            txtNama.Margin = new Padding(5, 5, 5, 5);
+            txtNama.Name = "txtNama";
+            txtNama.Size = new Size(449, 39);
+            txtNama.TabIndex = 16;
             // 
             // lblAlamat
             // 
             lblAlamat.AutoSize = true;
-            lblAlamat.Location = new Point(6, 112);
+            lblAlamat.Location = new Point(10, 179);
+            lblAlamat.Margin = new Padding(5, 0, 5, 0);
             lblAlamat.Name = "lblAlamat";
-            lblAlamat.Size = new Size(57, 20);
+            lblAlamat.Size = new Size(88, 32);
             lblAlamat.TabIndex = 2;
             lblAlamat.Text = "Alamat";
             // 
             // lblNama
             // 
             lblNama.AutoSize = true;
-            lblNama.Location = new Point(6, 39);
+            lblNama.Location = new Point(10, 55);
+            lblNama.Margin = new Padding(5, 0, 5, 0);
             lblNama.Name = "lblNama";
-            lblNama.Size = new Size(49, 20);
+            lblNama.Size = new Size(77, 32);
             lblNama.TabIndex = 0;
             lblNama.Text = "Nama";
             // 
             // grpProfil
             // 
+            grpProfil.Controls.Add(label1);
+            grpProfil.Controls.Add(txtTanggalLahir);
             grpProfil.Controls.Add(btnUpdateProfil);
-            grpProfil.Controls.Add(textBoxAlamat);
-            grpProfil.Controls.Add(textBoxNoHp);
-            grpProfil.Controls.Add(textBoxNama);
+            grpProfil.Controls.Add(txtAlamat);
+            grpProfil.Controls.Add(txtNohp);
+            grpProfil.Controls.Add(txtNama);
             grpProfil.Controls.Add(lblAlamat);
             grpProfil.Controls.Add(lblNoHp);
             grpProfil.Controls.Add(lblNama);
-            grpProfil.Location = new Point(14, 99);
+            grpProfil.Location = new Point(23, 158);
+            grpProfil.Margin = new Padding(5, 5, 5, 5);
             grpProfil.Name = "grpProfil";
-            grpProfil.Size = new Size(382, 202);
+            grpProfil.Padding = new Padding(5, 5, 5, 5);
+            grpProfil.Size = new Size(788, 377);
             grpProfil.TabIndex = 18;
             grpProfil.TabStop = false;
             grpProfil.Text = "Profil";
@@ -132,19 +141,21 @@
             // lblNoHp
             // 
             lblNoHp.AutoSize = true;
-            lblNoHp.Location = new Point(6, 76);
+            lblNoHp.Location = new Point(10, 122);
+            lblNoHp.Margin = new Padding(5, 0, 5, 0);
             lblNoHp.Name = "lblNoHp";
-            lblNoHp.Size = new Size(55, 20);
+            lblNoHp.Size = new Size(88, 32);
             lblNoHp.TabIndex = 1;
             lblNoHp.Text = "No. HP";
             // 
             // DaftarBuku
             // 
             DaftarBuku.Controls.Add(dgvHistori);
-            DaftarBuku.Controls.Add(Form);
-            DaftarBuku.Location = new Point(14, 307);
+            DaftarBuku.Location = new Point(23, 538);
+            DaftarBuku.Margin = new Padding(5, 5, 5, 5);
             DaftarBuku.Name = "DaftarBuku";
-            DaftarBuku.Size = new Size(1030, 354);
+            DaftarBuku.Padding = new Padding(5, 5, 5, 5);
+            DaftarBuku.Size = new Size(1674, 519);
             DaftarBuku.TabIndex = 17;
             DaftarBuku.TabStop = false;
             DaftarBuku.Text = "Histori Peminjaman";
@@ -153,76 +164,26 @@
             // 
             dgvHistori.BackgroundColor = Color.White;
             dgvHistori.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistori.Location = new Point(12, 26);
+            dgvHistori.Location = new Point(20, 42);
+            dgvHistori.Margin = new Padding(5, 5, 5, 5);
             dgvHistori.Name = "dgvHistori";
             dgvHistori.RowHeadersWidth = 51;
-            dgvHistori.Size = new Size(520, 319);
+            dgvHistori.Size = new Size(1618, 510);
             dgvHistori.TabIndex = 1;
             // 
             // Form
             // 
-            Form.Controls.Add(Aksi);
             Form.Controls.Add(btnCari);
-            Form.Controls.Add(btnHapus);
             Form.Controls.Add(textBoxJudul);
             Form.Controls.Add(lblJudul);
-            Form.Location = new Point(552, 26);
+            Form.Location = new Point(847, 158);
+            Form.Margin = new Padding(5, 5, 5, 5);
             Form.Name = "Form";
-            Form.Size = new Size(472, 319);
+            Form.Padding = new Padding(5, 5, 5, 5);
+            Form.Size = new Size(609, 174);
             Form.TabIndex = 14;
             Form.TabStop = false;
             Form.Text = "Aksi";
-            // 
-            // Aksi
-            // 
-            Aksi.Controls.Add(btnReload);
-            Aksi.Controls.Add(btnSimpan);
-            Aksi.Controls.Add(btnEdit);
-            Aksi.Location = new Point(6, 107);
-            Aksi.Name = "Aksi";
-            Aksi.Size = new Size(456, 146);
-            Aksi.TabIndex = 15;
-            Aksi.TabStop = false;
-            Aksi.Text = "Edit Tanggal";
-            // 
-            // btnReload
-            // 
-            btnReload.BackColor = SystemColors.ActiveCaption;
-            btnReload.FlatStyle = FlatStyle.Popup;
-            btnReload.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReload.ForeColor = Color.White;
-            btnReload.Location = new Point(6, 105);
-            btnReload.Name = "btnReload";
-            btnReload.Size = new Size(444, 29);
-            btnReload.TabIndex = 17;
-            btnReload.Text = "Reload";
-            btnReload.UseVisualStyleBackColor = false;
-            // 
-            // btnSimpan
-            // 
-            btnSimpan.BackColor = SystemColors.ActiveCaption;
-            btnSimpan.FlatStyle = FlatStyle.Popup;
-            btnSimpan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSimpan.ForeColor = Color.White;
-            btnSimpan.Location = new Point(6, 70);
-            btnSimpan.Name = "btnSimpan";
-            btnSimpan.Size = new Size(444, 29);
-            btnSimpan.TabIndex = 16;
-            btnSimpan.Text = "Simpan";
-            btnSimpan.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.BackColor = SystemColors.ActiveCaption;
-            btnEdit.FlatStyle = FlatStyle.Popup;
-            btnEdit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.ForeColor = Color.White;
-            btnEdit.Location = new Point(6, 35);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(444, 29);
-            btnEdit.TabIndex = 13;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnCari
             // 
@@ -230,39 +191,29 @@
             btnCari.FlatStyle = FlatStyle.Popup;
             btnCari.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCari.ForeColor = Color.White;
-            btnCari.Location = new Point(186, 72);
+            btnCari.Location = new Point(28, 107);
+            btnCari.Margin = new Padding(5, 5, 5, 5);
             btnCari.Name = "btnCari";
-            btnCari.Size = new Size(276, 29);
+            btnCari.Size = new Size(556, 46);
             btnCari.TabIndex = 10;
             btnCari.Text = "Cari";
             btnCari.UseVisualStyleBackColor = false;
             // 
-            // btnHapus
-            // 
-            btnHapus.BackColor = Color.LightCoral;
-            btnHapus.FlatStyle = FlatStyle.Popup;
-            btnHapus.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHapus.ForeColor = Color.White;
-            btnHapus.Location = new Point(6, 268);
-            btnHapus.Name = "btnHapus";
-            btnHapus.Size = new Size(456, 29);
-            btnHapus.TabIndex = 14;
-            btnHapus.Text = "Hapus";
-            btnHapus.UseVisualStyleBackColor = false;
-            // 
             // textBoxJudul
             // 
-            textBoxJudul.Location = new Point(186, 26);
+            textBoxJudul.Location = new Point(135, 39);
+            textBoxJudul.Margin = new Padding(5, 5, 5, 5);
             textBoxJudul.Name = "textBoxJudul";
-            textBoxJudul.Size = new Size(278, 27);
+            textBoxJudul.Size = new Size(449, 39);
             textBoxJudul.TabIndex = 9;
             // 
             // lblJudul
             // 
             lblJudul.AutoSize = true;
-            lblJudul.Location = new Point(17, 26);
+            lblJudul.Location = new Point(28, 42);
+            lblJudul.Margin = new Padding(5, 0, 5, 0);
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(43, 20);
+            lblJudul.Size = new Size(71, 32);
             lblJudul.TabIndex = 8;
             lblJudul.Text = "Judul";
             // 
@@ -273,9 +224,10 @@
             panel1.Controls.Add(btnProfil);
             panel1.Controls.Add(btnDaftarBuku);
             panel1.Controls.Add(pictureBox3);
-            panel1.Location = new Point(0, 1);
+            panel1.Location = new Point(0, 2);
+            panel1.Margin = new Padding(5, 5, 5, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1056, 92);
+            panel1.Size = new Size(1715, 146);
             panel1.TabIndex = 16;
             // 
             // btnProfil
@@ -285,9 +237,10 @@
             btnProfil.FlatStyle = FlatStyle.Flat;
             btnProfil.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProfil.ForeColor = Color.White;
-            btnProfil.Location = new Point(959, 20);
+            btnProfil.Location = new Point(1558, 32);
+            btnProfil.Margin = new Padding(5, 5, 5, 5);
             btnProfil.Name = "btnProfil";
-            btnProfil.Size = new Size(84, 50);
+            btnProfil.Size = new Size(136, 80);
             btnProfil.TabIndex = 25;
             btnProfil.Text = "Profil";
             btnProfil.UseVisualStyleBackColor = false;
@@ -299,9 +252,10 @@
             btnDaftarBuku.FlatStyle = FlatStyle.Flat;
             btnDaftarBuku.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDaftarBuku.ForeColor = Color.White;
-            btnDaftarBuku.Location = new Point(814, 20);
+            btnDaftarBuku.Location = new Point(1323, 32);
+            btnDaftarBuku.Margin = new Padding(5, 5, 5, 5);
             btnDaftarBuku.Name = "btnDaftarBuku";
-            btnDaftarBuku.Size = new Size(139, 50);
+            btnDaftarBuku.Size = new Size(226, 80);
             btnDaftarBuku.TabIndex = 24;
             btnDaftarBuku.Text = "Daftar Buku";
             btnDaftarBuku.UseVisualStyleBackColor = false;
@@ -309,31 +263,50 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(2, 2);
-            pictureBox3.Margin = new Padding(2);
+            pictureBox3.Location = new Point(3, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(91, 90);
+            pictureBox3.Size = new Size(148, 144);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 23;
             pictureBox3.TabStop = false;
             // 
+            // txtTanggalLahir
+            // 
+            txtTanggalLahir.Location = new Point(217, 254);
+            txtTanggalLahir.Margin = new Padding(5);
+            txtTanggalLahir.Name = "txtTanggalLahir";
+            txtTanggalLahir.Size = new Size(449, 39);
+            txtTanggalLahir.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 254);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(154, 32);
+            label1.TabIndex = 20;
+            label1.Text = "Tanggal Lahir";
+            // 
             // Profil
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 671);
+            ClientSize = new Size(1711, 1074);
             Controls.Add(grpProfil);
+            Controls.Add(Form);
             Controls.Add(DaftarBuku);
             Controls.Add(panel1);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Profil";
             Text = "Profil";
+            Load += Profil_Load;
             grpProfil.ResumeLayout(false);
             grpProfil.PerformLayout();
             DaftarBuku.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHistori).EndInit();
             Form.ResumeLayout(false);
             Form.PerformLayout();
-            Aksi.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
@@ -342,9 +315,9 @@
         #endregion
 
         private Button btnUpdateProfil;
-        private TextBox textBoxAlamat;
-        private TextBox textBoxNoHp;
-        private TextBox textBoxNama;
+        private TextBox txtAlamat;
+        private TextBox txtNohp;
+        private TextBox txtNama;
         private Label lblAlamat;
         private Label lblNama;
         private GroupBox grpProfil;
@@ -352,17 +325,14 @@
         private GroupBox DaftarBuku;
         private DataGridView dgvHistori;
         private GroupBox Form;
-        private GroupBox Aksi;
-        private Button btnReload;
-        private Button btnSimpan;
-        private Button btnEdit;
         private Button btnCari;
-        private Button btnHapus;
         private TextBox textBoxJudul;
         private Label lblJudul;
         private Panel panel1;
         private Button btnProfil;
         private Button btnDaftarBuku;
         private PictureBox pictureBox3;
+        private Label label1;
+        private TextBox txtTanggalLahir;
     }
 }

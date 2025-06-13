@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace project_pemvis
 {
@@ -84,13 +83,27 @@ namespace project_pemvis
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.HasRows)
+                    if (reader.Read())
                     {
-                        // Login sukses
+                        int userId = Convert.ToInt32(reader["id"]);
+                        // Ambil nilai role dari hasil query
+                        string role = reader["role"].ToString();
+
                         lblInvalid.Visible = false;
 
-                        Form1 mainForm = new Form1(); // Ganti dengan form utama kamu
-                        mainForm.Show();
+                        if (role == "member")
+                        {
+                            // Pindah ke form khusus member
+                            PinjamBukuMember formMember = new PinjamBukuMember(userId);
+                            formMember.Show();
+                        }
+                        else
+                        {
+                            // Pindah ke form utama/admin
+                            Form1 mainForm = new Form1();
+                            mainForm.Show();
+                        }
+
                         this.Hide(); // Sembunyikan form login
                     }
                     else
