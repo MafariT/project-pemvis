@@ -48,9 +48,10 @@
             // 
             buttonHeader.BackColor = SystemColors.ActiveCaption;
             buttonHeader.FlatStyle = FlatStyle.Flat;
-            buttonHeader.Location = new Point(-1, -3);
+            buttonHeader.Location = new Point(-1, -2);
+            buttonHeader.Margin = new Padding(2, 2, 2, 2);
             buttonHeader.Name = "buttonHeader";
-            buttonHeader.Size = new Size(968, 92);
+            buttonHeader.Size = new Size(678, 55);
             buttonHeader.TabIndex = 2;
             buttonHeader.UseVisualStyleBackColor = false;
             // 
@@ -58,10 +59,10 @@
             // 
             pictureBox3.BackColor = SystemColors.ActiveCaption;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(11, 11);
-            pictureBox3.Margin = new Padding(2);
+            pictureBox3.Location = new Point(8, 7);
+            pictureBox3.Margin = new Padding(1, 1, 1, 1);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(78, 63);
+            pictureBox3.Size = new Size(55, 38);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 25;
             pictureBox3.TabStop = false;
@@ -72,9 +73,10 @@
             labelJudulNavbar.BackColor = SystemColors.ActiveCaption;
             labelJudulNavbar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelJudulNavbar.ForeColor = SystemColors.ActiveCaptionText;
-            labelJudulNavbar.Location = new Point(94, 28);
+            labelJudulNavbar.Location = new Point(66, 17);
+            labelJudulNavbar.Margin = new Padding(2, 0, 2, 0);
             labelJudulNavbar.Name = "labelJudulNavbar";
-            labelJudulNavbar.Size = new Size(387, 28);
+            labelJudulNavbar.Size = new Size(268, 18);
             labelJudulNavbar.TabIndex = 33;
             labelJudulNavbar.Text = "Pengelolaan Buku Perpustakaan";
             // 
@@ -83,18 +85,21 @@
             buttonDataBuku.BackColor = Color.FromArgb(12, 53, 71);
             buttonDataBuku.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonDataBuku.ForeColor = SystemColors.ButtonHighlight;
-            buttonDataBuku.Location = new Point(755, 40);
+            buttonDataBuku.Location = new Point(528, 24);
+            buttonDataBuku.Margin = new Padding(2, 2, 2, 2);
             buttonDataBuku.Name = "buttonDataBuku";
-            buttonDataBuku.Size = new Size(173, 34);
+            buttonDataBuku.Size = new Size(121, 20);
             buttonDataBuku.TabIndex = 34;
             buttonDataBuku.Text = "Data Buku";
             buttonDataBuku.UseVisualStyleBackColor = false;
+            buttonDataBuku.Click += buttonDataBuku_Click;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(628, 141);
+            dateTimePicker1.Location = new Point(440, 85);
+            dateTimePicker1.Margin = new Padding(2, 2, 2, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(300, 31);
+            dateTimePicker1.Size = new Size(211, 23);
             dateTimePicker1.TabIndex = 35;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -102,28 +107,32 @@
             // 
             labelTanggalPinjam.AutoSize = true;
             labelTanggalPinjam.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTanggalPinjam.Location = new Point(782, 117);
+            labelTanggalPinjam.Location = new Point(547, 70);
+            labelTanggalPinjam.Margin = new Padding(2, 0, 2, 0);
             labelTanggalPinjam.Name = "labelTanggalPinjam";
-            labelTanggalPinjam.Size = new Size(146, 21);
+            labelTanggalPinjam.Size = new Size(97, 14);
             labelTanggalPinjam.TabIndex = 36;
             labelTanggalPinjam.Text = "Tanggal Pinjam";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 257);
+            dataGridView1.Location = new Point(8, 154);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(916, 317);
+            dataGridView1.Size = new Size(641, 190);
             dataGridView1.TabIndex = 39;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(buttonCari);
             groupBox1.Controls.Add(comboBoxFilter);
-            groupBox1.Location = new Point(12, 107);
+            groupBox1.Location = new Point(8, 64);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(523, 123);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(366, 74);
             groupBox1.TabIndex = 40;
             groupBox1.TabStop = false;
             groupBox1.Text = "Filter";
@@ -133,9 +142,10 @@
             buttonCari.BackColor = Color.FromArgb(12, 53, 71);
             buttonCari.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonCari.ForeColor = SystemColors.ButtonHighlight;
-            buttonCari.Location = new Point(6, 69);
+            buttonCari.Location = new Point(4, 41);
+            buttonCari.Margin = new Padding(2, 2, 2, 2);
             buttonCari.Name = "buttonCari";
-            buttonCari.Size = new Size(501, 34);
+            buttonCari.Size = new Size(351, 20);
             buttonCari.TabIndex = 11;
             buttonCari.Text = "Cari";
             buttonCari.UseVisualStyleBackColor = false;
@@ -143,16 +153,17 @@
             // comboBoxFilter
             // 
             comboBoxFilter.FormattingEnabled = true;
-            comboBoxFilter.Location = new Point(6, 30);
+            comboBoxFilter.Location = new Point(4, 18);
+            comboBoxFilter.Margin = new Padding(2, 2, 2, 2);
             comboBoxFilter.Name = "comboBoxFilter";
-            comboBoxFilter.Size = new Size(501, 33);
+            comboBoxFilter.Size = new Size(352, 23);
             comboBoxFilter.TabIndex = 0;
             // 
             // Admin_Read_Peminjam
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 586);
+            ClientSize = new Size(672, 352);
             Controls.Add(groupBox1);
             Controls.Add(dataGridView1);
             Controls.Add(labelTanggalPinjam);
@@ -161,6 +172,7 @@
             Controls.Add(labelJudulNavbar);
             Controls.Add(pictureBox3);
             Controls.Add(buttonHeader);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Admin_Read_Peminjam";
             Text = "Admin_Read_Peminjam";
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

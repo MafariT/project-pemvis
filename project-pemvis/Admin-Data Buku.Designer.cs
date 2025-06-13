@@ -29,30 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Data_Buku));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBoxInputBuku = new GroupBox();
+            textBoxStok = new TextBox();
+            textBoxTahunTerbit = new TextBox();
+            textBoxPenerbit = new TextBox();
+            textBoxPenulis = new TextBox();
+            textBoxJudul = new TextBox();
+            labelTahunTerbit = new Label();
+            labelPenerbit = new Label();
+            labelPenulis = new Label();
+            labelJudul = new Label();
+            labelStok = new Label();
             buttonHeader = new Button();
             pictureBox3 = new PictureBox();
-            labelIDBuku = new Label();
-            labelJudul = new Label();
-            labelPenulis = new Label();
-            labelPenerbit = new Label();
-            labelTahunTerbit = new Label();
-            textBoxIDBuku = new TextBox();
-            textBoxJudul = new TextBox();
-            textBoxPenulis = new TextBox();
-            textBoxPenerbit = new TextBox();
-            textBoxTahunTerbit = new TextBox();
             groupBox1 = new GroupBox();
-            comboBoxFilter = new ComboBox();
-            textBoxFilter = new TextBox();
             buttonCari = new Button();
+            textBoxFilter = new TextBox();
+            comboBoxFilter = new ComboBox();
             groupBoxAksi = new GroupBox();
-            buttonSimpan = new Button();
-            buttonEdit = new Button();
-            buttonHapus = new Button();
-            buttonReload = new Button();
-            buttonClear = new Button();
             buttonCetak = new Button();
+            buttonClear = new Button();
+            buttonReload = new Button();
+            buttonHapus = new Button();
+            buttonEdit = new Button();
+            buttonSimpan = new Button();
             dataGridView1 = new DataGridView();
             buttonPrev = new Button();
             buttonNext = new Button();
@@ -70,30 +72,128 @@
             // 
             groupBoxInputBuku.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBoxInputBuku.BackColor = SystemColors.GradientInactiveCaption;
+            groupBoxInputBuku.Controls.Add(textBoxStok);
             groupBoxInputBuku.Controls.Add(textBoxTahunTerbit);
             groupBoxInputBuku.Controls.Add(textBoxPenerbit);
             groupBoxInputBuku.Controls.Add(textBoxPenulis);
             groupBoxInputBuku.Controls.Add(textBoxJudul);
-            groupBoxInputBuku.Controls.Add(textBoxIDBuku);
             groupBoxInputBuku.Controls.Add(labelTahunTerbit);
             groupBoxInputBuku.Controls.Add(labelPenerbit);
             groupBoxInputBuku.Controls.Add(labelPenulis);
             groupBoxInputBuku.Controls.Add(labelJudul);
-            groupBoxInputBuku.Controls.Add(labelIDBuku);
-            groupBoxInputBuku.Location = new Point(12, 98);
+            groupBoxInputBuku.Controls.Add(labelStok);
+            groupBoxInputBuku.Location = new Point(8, 59);
+            groupBoxInputBuku.Margin = new Padding(2);
             groupBoxInputBuku.Name = "groupBoxInputBuku";
-            groupBoxInputBuku.Size = new Size(523, 271);
+            groupBoxInputBuku.Padding = new Padding(2);
+            groupBoxInputBuku.Size = new Size(366, 163);
             groupBoxInputBuku.TabIndex = 0;
             groupBoxInputBuku.TabStop = false;
             groupBoxInputBuku.Text = "Input Buku";
+            // 
+            // textBoxStok
+            // 
+            textBoxStok.Location = new Point(151, 127);
+            textBoxStok.Margin = new Padding(2);
+            textBoxStok.Name = "textBoxStok";
+            textBoxStok.Size = new Size(205, 23);
+            textBoxStok.TabIndex = 10;
+            // 
+            // textBoxTahunTerbit
+            // 
+            textBoxTahunTerbit.Location = new Point(151, 99);
+            textBoxTahunTerbit.Margin = new Padding(2);
+            textBoxTahunTerbit.Name = "textBoxTahunTerbit";
+            textBoxTahunTerbit.Size = new Size(205, 23);
+            textBoxTahunTerbit.TabIndex = 9;
+            // 
+            // textBoxPenerbit
+            // 
+            textBoxPenerbit.Location = new Point(151, 72);
+            textBoxPenerbit.Margin = new Padding(2);
+            textBoxPenerbit.Name = "textBoxPenerbit";
+            textBoxPenerbit.Size = new Size(205, 23);
+            textBoxPenerbit.TabIndex = 8;
+            // 
+            // textBoxPenulis
+            // 
+            textBoxPenulis.Location = new Point(151, 46);
+            textBoxPenulis.Margin = new Padding(2);
+            textBoxPenulis.Name = "textBoxPenulis";
+            textBoxPenulis.Size = new Size(205, 23);
+            textBoxPenulis.TabIndex = 7;
+            // 
+            // textBoxJudul
+            // 
+            textBoxJudul.Location = new Point(151, 20);
+            textBoxJudul.Margin = new Padding(2);
+            textBoxJudul.Name = "textBoxJudul";
+            textBoxJudul.Size = new Size(205, 23);
+            textBoxJudul.TabIndex = 6;
+            // 
+            // labelTahunTerbit
+            // 
+            labelTahunTerbit.AutoSize = true;
+            labelTahunTerbit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelTahunTerbit.Location = new Point(14, 105);
+            labelTahunTerbit.Margin = new Padding(2, 0, 2, 0);
+            labelTahunTerbit.Name = "labelTahunTerbit";
+            labelTahunTerbit.Size = new Size(81, 14);
+            labelTahunTerbit.TabIndex = 4;
+            labelTahunTerbit.Text = "Tahun Terbit";
+            // 
+            // labelPenerbit
+            // 
+            labelPenerbit.AutoSize = true;
+            labelPenerbit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPenerbit.Location = new Point(14, 78);
+            labelPenerbit.Margin = new Padding(2, 0, 2, 0);
+            labelPenerbit.Name = "labelPenerbit";
+            labelPenerbit.Size = new Size(56, 14);
+            labelPenerbit.TabIndex = 3;
+            labelPenerbit.Text = "Penerbit";
+            // 
+            // labelPenulis
+            // 
+            labelPenulis.AutoSize = true;
+            labelPenulis.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPenulis.Location = new Point(14, 52);
+            labelPenulis.Margin = new Padding(2, 0, 2, 0);
+            labelPenulis.Name = "labelPenulis";
+            labelPenulis.Size = new Size(49, 14);
+            labelPenulis.TabIndex = 2;
+            labelPenulis.Text = "Penulis";
+            // 
+            // labelJudul
+            // 
+            labelJudul.AutoSize = true;
+            labelJudul.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelJudul.Location = new Point(14, 26);
+            labelJudul.Margin = new Padding(2, 0, 2, 0);
+            labelJudul.Name = "labelJudul";
+            labelJudul.Size = new Size(39, 14);
+            labelJudul.TabIndex = 1;
+            labelJudul.Text = "Judul";
+            // 
+            // labelStok
+            // 
+            labelStok.AutoSize = true;
+            labelStok.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelStok.Location = new Point(14, 131);
+            labelStok.Margin = new Padding(2, 0, 2, 0);
+            labelStok.Name = "labelStok";
+            labelStok.Size = new Size(33, 14);
+            labelStok.TabIndex = 0;
+            labelStok.Text = "Stok";
             // 
             // buttonHeader
             // 
             buttonHeader.BackColor = SystemColors.ActiveCaption;
             buttonHeader.FlatStyle = FlatStyle.Flat;
-            buttonHeader.Location = new Point(-9, -9);
+            buttonHeader.Location = new Point(-6, -5);
+            buttonHeader.Margin = new Padding(2);
             buttonHeader.Name = "buttonHeader";
-            buttonHeader.Size = new Size(1260, 92);
+            buttonHeader.Size = new Size(882, 55);
             buttonHeader.TabIndex = 1;
             buttonHeader.UseVisualStyleBackColor = false;
             // 
@@ -101,137 +201,59 @@
             // 
             pictureBox3.BackColor = SystemColors.ActiveCaption;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(12, 11);
-            pictureBox3.Margin = new Padding(2);
+            pictureBox3.Location = new Point(8, 7);
+            pictureBox3.Margin = new Padding(1);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(78, 63);
+            pictureBox3.Size = new Size(55, 38);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 24;
             pictureBox3.TabStop = false;
-            // 
-            // labelIDBuku
-            // 
-            labelIDBuku.AutoSize = true;
-            labelIDBuku.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelIDBuku.Location = new Point(20, 38);
-            labelIDBuku.Name = "labelIDBuku";
-            labelIDBuku.Size = new Size(79, 21);
-            labelIDBuku.TabIndex = 0;
-            labelIDBuku.Text = "ID Buku";
-            // 
-            // labelJudul
-            // 
-            labelJudul.AutoSize = true;
-            labelJudul.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelJudul.Location = new Point(20, 80);
-            labelJudul.Name = "labelJudul";
-            labelJudul.Size = new Size(58, 21);
-            labelJudul.TabIndex = 1;
-            labelJudul.Text = "Judul";
-            // 
-            // labelPenulis
-            // 
-            labelPenulis.AutoSize = true;
-            labelPenulis.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelPenulis.Location = new Point(20, 124);
-            labelPenulis.Name = "labelPenulis";
-            labelPenulis.Size = new Size(75, 21);
-            labelPenulis.TabIndex = 2;
-            labelPenulis.Text = "Penulis";
-            // 
-            // labelPenerbit
-            // 
-            labelPenerbit.AutoSize = true;
-            labelPenerbit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelPenerbit.Location = new Point(20, 167);
-            labelPenerbit.Name = "labelPenerbit";
-            labelPenerbit.Size = new Size(85, 21);
-            labelPenerbit.TabIndex = 3;
-            labelPenerbit.Text = "Penerbit";
-            // 
-            // labelTahunTerbit
-            // 
-            labelTahunTerbit.AutoSize = true;
-            labelTahunTerbit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTahunTerbit.Location = new Point(20, 211);
-            labelTahunTerbit.Name = "labelTahunTerbit";
-            labelTahunTerbit.Size = new Size(122, 21);
-            labelTahunTerbit.TabIndex = 4;
-            labelTahunTerbit.Text = "Tahun Terbit";
-            // 
-            // textBoxIDBuku
-            // 
-            textBoxIDBuku.Location = new Point(216, 28);
-            textBoxIDBuku.Name = "textBoxIDBuku";
-            textBoxIDBuku.Size = new Size(291, 31);
-            textBoxIDBuku.TabIndex = 5;
-            // 
-            // textBoxJudul
-            // 
-            textBoxJudul.Location = new Point(216, 70);
-            textBoxJudul.Name = "textBoxJudul";
-            textBoxJudul.Size = new Size(291, 31);
-            textBoxJudul.TabIndex = 6;
-            // 
-            // textBoxPenulis
-            // 
-            textBoxPenulis.Location = new Point(216, 114);
-            textBoxPenulis.Name = "textBoxPenulis";
-            textBoxPenulis.Size = new Size(291, 31);
-            textBoxPenulis.TabIndex = 7;
-            // 
-            // textBoxPenerbit
-            // 
-            textBoxPenerbit.Location = new Point(216, 157);
-            textBoxPenerbit.Name = "textBoxPenerbit";
-            textBoxPenerbit.Size = new Size(291, 31);
-            textBoxPenerbit.TabIndex = 8;
-            // 
-            // textBoxTahunTerbit
-            // 
-            textBoxTahunTerbit.Location = new Point(216, 201);
-            textBoxTahunTerbit.Name = "textBoxTahunTerbit";
-            textBoxTahunTerbit.Size = new Size(291, 31);
-            textBoxTahunTerbit.TabIndex = 9;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(buttonCari);
             groupBox1.Controls.Add(textBoxFilter);
             groupBox1.Controls.Add(comboBoxFilter);
-            groupBox1.Location = new Point(12, 385);
+            groupBox1.Location = new Point(8, 231);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(523, 123);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(366, 74);
             groupBox1.TabIndex = 25;
             groupBox1.TabStop = false;
             groupBox1.Text = "Filter";
-            // 
-            // comboBoxFilter
-            // 
-            comboBoxFilter.FormattingEnabled = true;
-            comboBoxFilter.Location = new Point(6, 30);
-            comboBoxFilter.Name = "comboBoxFilter";
-            comboBoxFilter.Size = new Size(182, 33);
-            comboBoxFilter.TabIndex = 0;
-            // 
-            // textBoxFilter
-            // 
-            textBoxFilter.Location = new Point(216, 32);
-            textBoxFilter.Name = "textBoxFilter";
-            textBoxFilter.Size = new Size(291, 31);
-            textBoxFilter.TabIndex = 10;
             // 
             // buttonCari
             // 
             buttonCari.BackColor = Color.FromArgb(12, 53, 71);
             buttonCari.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonCari.ForeColor = SystemColors.ButtonHighlight;
-            buttonCari.Location = new Point(6, 69);
+            buttonCari.Location = new Point(4, 41);
+            buttonCari.Margin = new Padding(2);
             buttonCari.Name = "buttonCari";
-            buttonCari.Size = new Size(501, 34);
+            buttonCari.Size = new Size(351, 20);
             buttonCari.TabIndex = 11;
             buttonCari.Text = "Cari";
             buttonCari.UseVisualStyleBackColor = false;
+            buttonCari.Click += buttonCari_Click;
+            // 
+            // textBoxFilter
+            // 
+            textBoxFilter.Location = new Point(151, 19);
+            textBoxFilter.Margin = new Padding(2);
+            textBoxFilter.Name = "textBoxFilter";
+            textBoxFilter.Size = new Size(205, 23);
+            textBoxFilter.TabIndex = 10;
+            // 
+            // comboBoxFilter
+            // 
+            comboBoxFilter.FormattingEnabled = true;
+            comboBoxFilter.Items.AddRange(new object[] { "Judul", "Penulis", "Penerbit", "Tahun Terbit" });
+            comboBoxFilter.Location = new Point(4, 18);
+            comboBoxFilter.Margin = new Padding(2);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(129, 23);
+            comboBoxFilter.TabIndex = 0;
             // 
             // groupBoxAksi
             // 
@@ -242,115 +264,155 @@
             groupBoxAksi.Controls.Add(buttonHapus);
             groupBoxAksi.Controls.Add(buttonEdit);
             groupBoxAksi.Controls.Add(buttonSimpan);
-            groupBoxAksi.Location = new Point(12, 532);
+            groupBoxAksi.Location = new Point(8, 319);
+            groupBoxAksi.Margin = new Padding(2);
             groupBoxAksi.Name = "groupBoxAksi";
-            groupBoxAksi.Size = new Size(523, 136);
+            groupBoxAksi.Padding = new Padding(2);
+            groupBoxAksi.Size = new Size(366, 82);
             groupBoxAksi.TabIndex = 26;
             groupBoxAksi.TabStop = false;
             groupBoxAksi.Text = "Aksi";
             // 
-            // buttonSimpan
+            // buttonCetak
             // 
-            buttonSimpan.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSimpan.Location = new Point(6, 30);
-            buttonSimpan.Name = "buttonSimpan";
-            buttonSimpan.Size = new Size(127, 35);
-            buttonSimpan.TabIndex = 0;
-            buttonSimpan.Text = "Simpan";
-            buttonSimpan.UseVisualStyleBackColor = true;
-            buttonSimpan.Click += buttonSimpan_Click;
-            // 
-            // buttonEdit
-            // 
-            buttonEdit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEdit.Location = new Point(139, 30);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(117, 35);
-            buttonEdit.TabIndex = 1;
-            buttonEdit.Text = "Edit";
-            buttonEdit.UseVisualStyleBackColor = true;
-            // 
-            // buttonHapus
-            // 
-            buttonHapus.BackColor = Color.Brown;
-            buttonHapus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonHapus.ForeColor = SystemColors.ButtonHighlight;
-            buttonHapus.Location = new Point(385, 30);
-            buttonHapus.Name = "buttonHapus";
-            buttonHapus.Size = new Size(122, 35);
-            buttonHapus.TabIndex = 2;
-            buttonHapus.Text = "Hapus";
-            buttonHapus.UseVisualStyleBackColor = false;
-            buttonHapus.Click += button2_Click_1;
-            // 
-            // buttonReload
-            // 
-            buttonReload.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonReload.Location = new Point(262, 30);
-            buttonReload.Name = "buttonReload";
-            buttonReload.Size = new Size(117, 35);
-            buttonReload.TabIndex = 27;
-            buttonReload.Text = "Reload";
-            buttonReload.UseVisualStyleBackColor = true;
-            buttonReload.Click += buttonReload_Click;
+            buttonCetak.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonCetak.Location = new Point(183, 50);
+            buttonCetak.Margin = new Padding(2);
+            buttonCetak.Name = "buttonCetak";
+            buttonCetak.Size = new Size(172, 21);
+            buttonCetak.TabIndex = 29;
+            buttonCetak.Text = "Cetak";
+            buttonCetak.UseVisualStyleBackColor = true;
+            buttonCetak.Click += buttonCetak_Click;
             // 
             // buttonClear
             // 
             buttonClear.BackColor = Color.FromArgb(12, 53, 71);
             buttonClear.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonClear.ForeColor = SystemColors.ButtonHighlight;
-            buttonClear.Location = new Point(6, 83);
+            buttonClear.Location = new Point(4, 50);
+            buttonClear.Margin = new Padding(2);
             buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(250, 35);
+            buttonClear.Size = new Size(175, 21);
             buttonClear.TabIndex = 28;
             buttonClear.Text = "Clear";
             buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
             // 
-            // buttonCetak
+            // buttonReload
             // 
-            buttonCetak.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonCetak.Location = new Point(262, 83);
-            buttonCetak.Name = "buttonCetak";
-            buttonCetak.Size = new Size(245, 35);
-            buttonCetak.TabIndex = 29;
-            buttonCetak.Text = "Cetak";
-            buttonCetak.UseVisualStyleBackColor = true;
+            buttonReload.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonReload.Location = new Point(183, 18);
+            buttonReload.Margin = new Padding(2);
+            buttonReload.Name = "buttonReload";
+            buttonReload.Size = new Size(82, 21);
+            buttonReload.TabIndex = 27;
+            buttonReload.Text = "Reload";
+            buttonReload.UseVisualStyleBackColor = true;
+            buttonReload.Click += buttonReload_Click;
+            // 
+            // buttonHapus
+            // 
+            buttonHapus.BackColor = Color.Brown;
+            buttonHapus.Enabled = false;
+            buttonHapus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonHapus.ForeColor = SystemColors.ButtonHighlight;
+            buttonHapus.Location = new Point(270, 18);
+            buttonHapus.Margin = new Padding(2);
+            buttonHapus.Name = "buttonHapus";
+            buttonHapus.Size = new Size(85, 21);
+            buttonHapus.TabIndex = 2;
+            buttonHapus.Text = "Hapus";
+            buttonHapus.UseVisualStyleBackColor = false;
+            buttonHapus.Click += buttonHapus_Click;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Enabled = false;
+            buttonEdit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonEdit.Location = new Point(97, 18);
+            buttonEdit.Margin = new Padding(2);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(82, 21);
+            buttonEdit.TabIndex = 1;
+            buttonEdit.Text = "Edit";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // buttonSimpan
+            // 
+            buttonSimpan.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSimpan.Location = new Point(4, 18);
+            buttonSimpan.Margin = new Padding(2);
+            buttonSimpan.Name = "buttonSimpan";
+            buttonSimpan.Size = new Size(89, 21);
+            buttonSimpan.TabIndex = 0;
+            buttonSimpan.Text = "Simpan";
+            buttonSimpan.UseVisualStyleBackColor = true;
+            buttonSimpan.Click += buttonSimpan_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(557, 101);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.Location = new Point(390, 61);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(673, 496);
+            dataGridView1.Size = new Size(471, 298);
             dataGridView1.TabIndex = 27;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // buttonPrev
             // 
             buttonPrev.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonPrev.Location = new Point(557, 615);
+            buttonPrev.Location = new Point(390, 369);
+            buttonPrev.Margin = new Padding(2);
             buttonPrev.Name = "buttonPrev";
-            buttonPrev.Size = new Size(82, 35);
+            buttonPrev.Size = new Size(57, 21);
             buttonPrev.TabIndex = 28;
             buttonPrev.Text = "Prev";
             buttonPrev.UseVisualStyleBackColor = true;
+            buttonPrev.Click += buttonPrev_Click;
             // 
             // buttonNext
             // 
             buttonNext.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonNext.Location = new Point(655, 615);
+            buttonNext.Location = new Point(458, 369);
+            buttonNext.Margin = new Padding(2);
             buttonNext.Name = "buttonNext";
-            buttonNext.Size = new Size(82, 35);
+            buttonNext.Size = new Size(57, 21);
             buttonNext.TabIndex = 29;
             buttonNext.Text = "Next";
             buttonNext.UseVisualStyleBackColor = true;
+            buttonNext.Click += buttonNext_Click;
             // 
             // labelHalaman
             // 
             labelHalaman.AutoSize = true;
-            labelHalaman.Location = new Point(1083, 619);
+            labelHalaman.Location = new Point(758, 371);
+            labelHalaman.Margin = new Padding(2, 0, 2, 0);
             labelHalaman.Name = "labelHalaman";
-            labelHalaman.Size = new Size(147, 25);
+            labelHalaman.Size = new Size(96, 15);
             labelHalaman.TabIndex = 30;
             labelHalaman.Text = "Halaman 1 dari 2";
             // 
@@ -360,9 +422,10 @@
             labelJudulNavbar.BackColor = SystemColors.ActiveCaption;
             labelJudulNavbar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelJudulNavbar.ForeColor = SystemColors.ActiveCaptionText;
-            labelJudulNavbar.Location = new Point(95, 22);
+            labelJudulNavbar.Location = new Point(66, 13);
+            labelJudulNavbar.Margin = new Padding(2, 0, 2, 0);
             labelJudulNavbar.Name = "labelJudulNavbar";
-            labelJudulNavbar.Size = new Size(387, 28);
+            labelJudulNavbar.Size = new Size(268, 18);
             labelJudulNavbar.TabIndex = 32;
             labelJudulNavbar.Text = "Pengelolaan Buku Perpustakaan";
             // 
@@ -371,18 +434,20 @@
             buttonPeminjamBuku.BackColor = Color.FromArgb(12, 53, 71);
             buttonPeminjamBuku.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPeminjamBuku.ForeColor = SystemColors.ButtonHighlight;
-            buttonPeminjamBuku.Location = new Point(1057, 40);
+            buttonPeminjamBuku.Location = new Point(740, 24);
+            buttonPeminjamBuku.Margin = new Padding(2);
             buttonPeminjamBuku.Name = "buttonPeminjamBuku";
-            buttonPeminjamBuku.Size = new Size(173, 34);
+            buttonPeminjamBuku.Size = new Size(121, 20);
             buttonPeminjamBuku.TabIndex = 33;
             buttonPeminjamBuku.Text = "Peminjam Buku";
             buttonPeminjamBuku.UseVisualStyleBackColor = false;
+            buttonPeminjamBuku.Click += buttonPeminjamBuku_Click;
             // 
             // Admin_Data_Buku
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1242, 680);
+            ClientSize = new Size(869, 408);
             Controls.Add(buttonPeminjamBuku);
             Controls.Add(labelJudulNavbar);
             Controls.Add(labelHalaman);
@@ -394,6 +459,7 @@
             Controls.Add(pictureBox3);
             Controls.Add(buttonHeader);
             Controls.Add(groupBoxInputBuku);
+            Margin = new Padding(2);
             Name = "Admin_Data_Buku";
             Text = "Admin_Data_Buku";
             Load += Admin_Data_Buku_Load;
@@ -417,12 +483,11 @@
         private Label labelPenerbit;
         private Label labelPenulis;
         private Label labelJudul;
-        private Label labelIDBuku;
+        private Label labelStok;
         private TextBox textBoxTahunTerbit;
         private TextBox textBoxPenerbit;
         private TextBox textBoxPenulis;
         private TextBox textBoxJudul;
-        private TextBox textBoxIDBuku;
         private GroupBox groupBox1;
         private ComboBox comboBoxFilter;
         private TextBox textBoxFilter;
@@ -440,5 +505,6 @@
         private Label labelHalaman;
         private Label labelJudulNavbar;
         private Button buttonPeminjamBuku;
+        private TextBox textBoxStok;
     }
 }

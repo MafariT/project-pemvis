@@ -21,5 +21,12 @@ namespace project_pemvis
         {
 
         }
+
+        private void buttonDataBuku_Click(object sender, EventArgs e)
+        {
+            Admin_Data_Buku adb = new Admin_Data_Buku();
+            this.Hide();
+            adb.Show();
+        }
     }
 }
