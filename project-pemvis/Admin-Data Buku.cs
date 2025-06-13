@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace project_pemvis
 {
@@ -219,35 +223,91 @@ namespace project_pemvis
         }
         private void buttonCetak_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV file|*.csv", FileName = "buku.csv" })
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF files|*.pdf", FileName = "laporan_buku.pdf" })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        var sb = new StringBuilder();
-                        var headers = dataGridView1.Columns.Cast<DataGridViewColumn>();
-                        sb.AppendLine(string.Join(",", headers.Select(c => c.HeaderText)));
+                        Document doc = new Document(PageSize.A4, 40f, 40f, 50f, 40f);
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
 
+                        // Fonts
+                        var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK);
+                        var headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
+                        var cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 11, BaseColor.BLACK);
+                        var dateFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10, BaseColor.DARK_GRAY);
+
+                        // Title
+                        Paragraph title = new Paragraph("📘 Laporan Data Buku", titleFont);
+                        title.Alignment = Element.ALIGN_CENTER;
+                        title.SpacingAfter = 20f;
+                        doc.Add(title);
+
+                        // Date
+                        string dateStr = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm", new CultureInfo("id-ID"));
+                        Paragraph date = new Paragraph($"Dicetak pada: {dateStr}", dateFont);
+                        date.Alignment = Element.ALIGN_RIGHT;
+                        date.SpacingAfter = 10f;
+                        doc.Add(date);
+
+                        // Table
+                        PdfPTable table = new PdfPTable(dataGridView1.Columns.Count);
+                        table.WidthPercentage = 100;
+                        table.SpacingBefore = 10f;
+                        table.SpacingAfter = 20f;
+
+                        foreach (DataGridViewColumn column in dataGridView1.Columns)
+                        {
+                            PdfPCell headerCell = new PdfPCell(new Phrase(column.HeaderText, headerFont))
+                            {
+                                BackgroundColor = new BaseColor(33, 150, 243),
+                                HorizontalAlignment = Element.ALIGN_CENTER,
+                                Padding = 6
+                            };
+                            table.AddCell(headerCell);
+                        }
+
+                        bool alternate = false;
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
                             if (!row.IsNewRow)
                             {
-                                var cells = row.Cells.Cast<DataGridViewCell>();
-                                sb.AppendLine(string.Join(",", cells.Select(c => c.Value?.ToString()?.Replace(",", " "))));
+                                BaseColor bgColor = alternate ? new BaseColor(245, 245, 245) : BaseColor.WHITE;
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    PdfPCell dataCell = new PdfPCell(new Phrase(cell.Value?.ToString() ?? "", cellFont))
+                                    {
+                                        BackgroundColor = bgColor,
+                                        Padding = 5
+                                    };
+                                    table.AddCell(dataCell);
+                                }
+                                alternate = !alternate;
                             }
                         }
 
-                        System.IO.File.WriteAllText(sfd.FileName, sb.ToString());
-                        MessageBox.Show("Data berhasil diexport ke CSV!");
+                        doc.Add(table);
+
+                        // Footer
+                        Paragraph footer = new Paragraph("© " + DateTime.Now.Year + " Buku. All Rights Reserved.", dateFont);
+                        footer.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(footer);
+
+                        doc.Close();
+
+                        MessageBox.Show("Data berhasil diexport ke PDF!", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Gagal export: " + ex.Message);
+                        MessageBox.Show("Gagal export ke PDF: " + ex.Message);
                     }
                 }
             }
         }
+
+
         private void buttonReload_Click(object sender, EventArgs e)
         {
             LoadData();
