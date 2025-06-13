@@ -126,13 +126,13 @@ namespace project_pemvis
                 try
                 {
                     conn.Open();
-                    string query = "UPDATE buku SET judul=@judul, penulis=@penulis, penerbit=@penerbit, tahun_terbit=@tahun, sinopsis=@sinopsis, kategori=@kategori, stok=@stok WHERE id=@id";
+                    string query = "UPDATE buku SET judul=@judul, penulis=@penulis, penerbit=@penerbit, tahun_terbit=@tahun_terbit, sinopsis=@sinopsis, kategori=@kategori, stok=@stok WHERE id=@id";
                     var cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", currentId);
                     cmd.Parameters.AddWithValue("@judul", textBoxJudul.Text);
                     cmd.Parameters.AddWithValue("@penulis", textBoxPenulis.Text);
                     cmd.Parameters.AddWithValue("@penerbit", textBoxPenerbit.Text);
-                    cmd.Parameters.AddWithValue("@tahun", int.Parse(textBoxTahunTerbit.Text));
+                    cmd.Parameters.AddWithValue("@tahun_terbit", int.Parse(textBoxTahunTerbit.Text));
                     cmd.Parameters.AddWithValue("@sinopsis", textBoxSinopsis.Text);
                     cmd.Parameters.AddWithValue("@kategori", textBoxKategori.Text);
                     cmd.Parameters.AddWithValue("@stok", int.Parse(textBoxStok.Text));
