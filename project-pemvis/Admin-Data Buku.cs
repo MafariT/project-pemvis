@@ -54,8 +54,9 @@ namespace project_pemvis
                 dataGridView1.Columns["penulis"].HeaderText = "Penulis";
                 dataGridView1.Columns["penerbit"].HeaderText = "Penerbit";
                 dataGridView1.Columns["tahun_terbit"].HeaderText = "Tahun Terbit";
+                dataGridView1.Columns["sinopsis"].HeaderText = "Sinopsis";
+                dataGridView1.Columns["kategori"].HeaderText = "Kategori";
                 dataGridView1.Columns["stok"].HeaderText = "Jumlah Stok";
-
             }
         }
 
@@ -81,12 +82,14 @@ namespace project_pemvis
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO buku (judul, penulis, penerbit, tahun_terbit, stok) VALUES (@judul, @penulis, @penerbit, @tahun, @stok)";
+                    string query = "INSERT INTO buku (judul, penulis, penerbit, tahun_terbit, sinopsis, kategori, stok) VALUES (@judul, @penulis, @penerbit, @tahun_terbit, @sinopsis, @kategori, @stok)";
                     var cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@judul", textBoxJudul.Text);
                     cmd.Parameters.AddWithValue("@penulis", textBoxPenulis.Text);
                     cmd.Parameters.AddWithValue("@penerbit", textBoxPenerbit.Text);
-                    cmd.Parameters.AddWithValue("@tahun", int.Parse(textBoxTahunTerbit.Text));
+                    cmd.Parameters.AddWithValue("@tahun_terbit", int.Parse(textBoxTahunTerbit.Text));
+                    cmd.Parameters.AddWithValue("@sinopsis", textBoxSinopsis.Text);
+                    cmd.Parameters.AddWithValue("@kategori", textBoxKategori.Text);
                     cmd.Parameters.AddWithValue("@stok", int.Parse(textBoxStok.Text));
                     cmd.ExecuteNonQuery();
 
@@ -123,13 +126,15 @@ namespace project_pemvis
                 try
                 {
                     conn.Open();
-                    string query = "UPDATE buku SET judul=@judul, penulis=@penulis, penerbit=@penerbit, tahun_terbit=@tahun, stok=@stok WHERE id=@id";
+                    string query = "UPDATE buku SET judul=@judul, penulis=@penulis, penerbit=@penerbit, tahun_terbit=@tahun, sinopsis=@sinopsis, kategori=@kategori, stok=@stok WHERE id=@id";
                     var cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", currentId);
                     cmd.Parameters.AddWithValue("@judul", textBoxJudul.Text);
                     cmd.Parameters.AddWithValue("@penulis", textBoxPenulis.Text);
                     cmd.Parameters.AddWithValue("@penerbit", textBoxPenerbit.Text);
                     cmd.Parameters.AddWithValue("@tahun", int.Parse(textBoxTahunTerbit.Text));
+                    cmd.Parameters.AddWithValue("@sinopsis", textBoxSinopsis.Text);
+                    cmd.Parameters.AddWithValue("@kategori", textBoxKategori.Text);
                     cmd.Parameters.AddWithValue("@stok", int.Parse(textBoxStok.Text));
                     cmd.ExecuteNonQuery();
 
@@ -199,6 +204,8 @@ namespace project_pemvis
                         query += " AND penerbit LIKE @filter";
                     else if (column == "Tahun Terbit")
                         query += " AND tahun_terbit LIKE @filter";
+                    else if (column == "Kategori")
+                        query += " AND kategori LIKE @filter";
                 }
 
                 var cmd = new MySqlCommand(query, conn);
@@ -282,6 +289,8 @@ namespace project_pemvis
             textBoxPenulis.Clear();
             textBoxPenerbit.Clear();
             textBoxTahunTerbit.Clear();
+            textBoxSinopsis.Clear();
+            textBoxKategori.Clear();
             textBoxStok.Clear();
 
             textBoxJudul.Focus();
@@ -301,6 +310,8 @@ namespace project_pemvis
                 textBoxPenulis.Text = row.Cells["penulis"].Value.ToString();
                 textBoxPenerbit.Text = row.Cells["penerbit"].Value.ToString();
                 textBoxTahunTerbit.Text = row.Cells["tahun_terbit"].Value.ToString();
+                textBoxSinopsis.Text = row.Cells["sinopsis"].Value.ToString();
+                textBoxKategori.Text = row.Cells["kategori"].Value.ToString();
                 textBoxStok.Text = row.Cells["stok"].Value.ToString();
 
                 buttonEdit.Enabled = true;

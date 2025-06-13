@@ -32,8 +32,12 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBoxInputBuku = new GroupBox();
+            textBoxKategori = new TextBox();
             textBoxStok = new TextBox();
+            labelKategori = new Label();
             textBoxTahunTerbit = new TextBox();
+            textBoxSinopsis = new TextBox();
+            labelSinopsis = new Label();
             textBoxPenerbit = new TextBox();
             textBoxPenulis = new TextBox();
             textBoxJudul = new TextBox();
@@ -72,8 +76,12 @@
             // 
             groupBoxInputBuku.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBoxInputBuku.BackColor = SystemColors.GradientInactiveCaption;
+            groupBoxInputBuku.Controls.Add(textBoxKategori);
             groupBoxInputBuku.Controls.Add(textBoxStok);
+            groupBoxInputBuku.Controls.Add(labelKategori);
             groupBoxInputBuku.Controls.Add(textBoxTahunTerbit);
+            groupBoxInputBuku.Controls.Add(textBoxSinopsis);
+            groupBoxInputBuku.Controls.Add(labelSinopsis);
             groupBoxInputBuku.Controls.Add(textBoxPenerbit);
             groupBoxInputBuku.Controls.Add(textBoxPenulis);
             groupBoxInputBuku.Controls.Add(textBoxJudul);
@@ -86,18 +94,37 @@
             groupBoxInputBuku.Margin = new Padding(2);
             groupBoxInputBuku.Name = "groupBoxInputBuku";
             groupBoxInputBuku.Padding = new Padding(2);
-            groupBoxInputBuku.Size = new Size(366, 163);
+            groupBoxInputBuku.Size = new Size(366, 212);
             groupBoxInputBuku.TabIndex = 0;
             groupBoxInputBuku.TabStop = false;
             groupBoxInputBuku.Text = "Input Buku";
             // 
+            // textBoxKategori
+            // 
+            textBoxKategori.Location = new Point(150, 153);
+            textBoxKategori.Margin = new Padding(2);
+            textBoxKategori.Name = "textBoxKategori";
+            textBoxKategori.Size = new Size(205, 23);
+            textBoxKategori.TabIndex = 11;
+            // 
             // textBoxStok
             // 
-            textBoxStok.Location = new Point(151, 127);
+            textBoxStok.Location = new Point(150, 180);
             textBoxStok.Margin = new Padding(2);
             textBoxStok.Name = "textBoxStok";
             textBoxStok.Size = new Size(205, 23);
-            textBoxStok.TabIndex = 10;
+            textBoxStok.TabIndex = 12;
+            // 
+            // labelKategori
+            // 
+            labelKategori.AutoSize = true;
+            labelKategori.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelKategori.Location = new Point(14, 157);
+            labelKategori.Margin = new Padding(2, 0, 2, 0);
+            labelKategori.Name = "labelKategori";
+            labelKategori.Size = new Size(57, 14);
+            labelKategori.TabIndex = 11;
+            labelKategori.Text = "Kategori";
             // 
             // textBoxTahunTerbit
             // 
@@ -106,6 +133,25 @@
             textBoxTahunTerbit.Name = "textBoxTahunTerbit";
             textBoxTahunTerbit.Size = new Size(205, 23);
             textBoxTahunTerbit.TabIndex = 9;
+            // 
+            // textBoxSinopsis
+            // 
+            textBoxSinopsis.Location = new Point(151, 125);
+            textBoxSinopsis.Margin = new Padding(2);
+            textBoxSinopsis.Name = "textBoxSinopsis";
+            textBoxSinopsis.Size = new Size(205, 23);
+            textBoxSinopsis.TabIndex = 10;
+            // 
+            // labelSinopsis
+            // 
+            labelSinopsis.AutoSize = true;
+            labelSinopsis.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelSinopsis.Location = new Point(14, 130);
+            labelSinopsis.Margin = new Padding(2, 0, 2, 0);
+            labelSinopsis.Name = "labelSinopsis";
+            labelSinopsis.Size = new Size(57, 14);
+            labelSinopsis.TabIndex = 12;
+            labelSinopsis.Text = "Sinopsis";
             // 
             // textBoxPenerbit
             // 
@@ -135,7 +181,7 @@
             // 
             labelTahunTerbit.AutoSize = true;
             labelTahunTerbit.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTahunTerbit.Location = new Point(14, 105);
+            labelTahunTerbit.Location = new Point(14, 103);
             labelTahunTerbit.Margin = new Padding(2, 0, 2, 0);
             labelTahunTerbit.Name = "labelTahunTerbit";
             labelTahunTerbit.Size = new Size(81, 14);
@@ -179,7 +225,7 @@
             // 
             labelStok.AutoSize = true;
             labelStok.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelStok.Location = new Point(14, 131);
+            labelStok.Location = new Point(14, 184);
             labelStok.Margin = new Padding(2, 0, 2, 0);
             labelStok.Name = "labelStok";
             labelStok.Size = new Size(33, 14);
@@ -193,7 +239,7 @@
             buttonHeader.Location = new Point(-6, -5);
             buttonHeader.Margin = new Padding(2);
             buttonHeader.Name = "buttonHeader";
-            buttonHeader.Size = new Size(882, 55);
+            buttonHeader.Size = new Size(1009, 55);
             buttonHeader.TabIndex = 1;
             buttonHeader.UseVisualStyleBackColor = false;
             // 
@@ -214,7 +260,7 @@
             groupBox1.Controls.Add(buttonCari);
             groupBox1.Controls.Add(textBoxFilter);
             groupBox1.Controls.Add(comboBoxFilter);
-            groupBox1.Location = new Point(8, 231);
+            groupBox1.Location = new Point(8, 275);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
@@ -228,7 +274,7 @@
             buttonCari.BackColor = Color.FromArgb(12, 53, 71);
             buttonCari.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonCari.ForeColor = SystemColors.ButtonHighlight;
-            buttonCari.Location = new Point(4, 41);
+            buttonCari.Location = new Point(5, 45);
             buttonCari.Margin = new Padding(2);
             buttonCari.Name = "buttonCari";
             buttonCari.Size = new Size(351, 20);
@@ -239,7 +285,7 @@
             // 
             // textBoxFilter
             // 
-            textBoxFilter.Location = new Point(151, 19);
+            textBoxFilter.Location = new Point(150, 18);
             textBoxFilter.Margin = new Padding(2);
             textBoxFilter.Name = "textBoxFilter";
             textBoxFilter.Size = new Size(205, 23);
@@ -248,7 +294,7 @@
             // comboBoxFilter
             // 
             comboBoxFilter.FormattingEnabled = true;
-            comboBoxFilter.Items.AddRange(new object[] { "Judul", "Penulis", "Penerbit", "Tahun Terbit" });
+            comboBoxFilter.Items.AddRange(new object[] { "Judul", "Penulis", "Penerbit", "Tahun Terbit", "Kategori" });
             comboBoxFilter.Location = new Point(4, 18);
             comboBoxFilter.Margin = new Padding(2);
             comboBoxFilter.Name = "comboBoxFilter";
@@ -264,7 +310,7 @@
             groupBoxAksi.Controls.Add(buttonHapus);
             groupBoxAksi.Controls.Add(buttonEdit);
             groupBoxAksi.Controls.Add(buttonSimpan);
-            groupBoxAksi.Location = new Point(8, 319);
+            groupBoxAksi.Location = new Point(8, 363);
             groupBoxAksi.Margin = new Padding(2);
             groupBoxAksi.Name = "groupBoxAksi";
             groupBoxAksi.Padding = new Padding(2);
@@ -378,17 +424,17 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(471, 298);
+            dataGridView1.Size = new Size(600, 359);
             dataGridView1.TabIndex = 27;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // buttonPrev
             // 
             buttonPrev.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonPrev.Location = new Point(390, 369);
+            buttonPrev.Location = new Point(390, 424);
             buttonPrev.Margin = new Padding(2);
             buttonPrev.Name = "buttonPrev";
-            buttonPrev.Size = new Size(57, 21);
+            buttonPrev.Size = new Size(98, 21);
             buttonPrev.TabIndex = 28;
             buttonPrev.Text = "Prev";
             buttonPrev.UseVisualStyleBackColor = true;
@@ -397,10 +443,10 @@
             // buttonNext
             // 
             buttonNext.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonNext.Location = new Point(458, 369);
+            buttonNext.Location = new Point(492, 424);
             buttonNext.Margin = new Padding(2);
             buttonNext.Name = "buttonNext";
-            buttonNext.Size = new Size(57, 21);
+            buttonNext.Size = new Size(98, 21);
             buttonNext.TabIndex = 29;
             buttonNext.Text = "Next";
             buttonNext.UseVisualStyleBackColor = true;
@@ -409,7 +455,7 @@
             // labelHalaman
             // 
             labelHalaman.AutoSize = true;
-            labelHalaman.Location = new Point(758, 371);
+            labelHalaman.Location = new Point(894, 426);
             labelHalaman.Margin = new Padding(2, 0, 2, 0);
             labelHalaman.Name = "labelHalaman";
             labelHalaman.Size = new Size(96, 15);
@@ -434,7 +480,7 @@
             buttonPeminjamBuku.BackColor = Color.FromArgb(12, 53, 71);
             buttonPeminjamBuku.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPeminjamBuku.ForeColor = SystemColors.ButtonHighlight;
-            buttonPeminjamBuku.Location = new Point(740, 24);
+            buttonPeminjamBuku.Location = new Point(869, 25);
             buttonPeminjamBuku.Margin = new Padding(2);
             buttonPeminjamBuku.Name = "buttonPeminjamBuku";
             buttonPeminjamBuku.Size = new Size(121, 20);
@@ -447,7 +493,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(869, 408);
+            ClientSize = new Size(1001, 450);
             Controls.Add(buttonPeminjamBuku);
             Controls.Add(labelJudulNavbar);
             Controls.Add(labelHalaman);
@@ -506,5 +552,9 @@
         private Label labelJudulNavbar;
         private Button buttonPeminjamBuku;
         private TextBox textBoxStok;
+        private Label labelKategori;
+        private Label labelSinopsis;
+        private TextBox textBoxKategori;
+        private TextBox textBoxSinopsis;
     }
 }
