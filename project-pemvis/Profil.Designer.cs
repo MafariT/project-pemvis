@@ -36,6 +36,8 @@
             lblAlamat = new Label();
             lblNama = new Label();
             grpProfil = new GroupBox();
+            dateTimeTglLahir = new DateTimePicker();
+            label1 = new Label();
             lblNoHp = new Label();
             DaftarBuku = new GroupBox();
             dgvHistori = new DataGridView();
@@ -47,8 +49,8 @@
             btnProfil = new Button();
             btnDaftarBuku = new Button();
             pictureBox3 = new PictureBox();
-            txtTanggalLahir = new TextBox();
-            label1 = new Label();
+            btnKeluar = new Button();
+            button2 = new Button();
             grpProfil.SuspendLayout();
             DaftarBuku.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistori).BeginInit();
@@ -64,7 +66,7 @@
             btnUpdateProfil.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdateProfil.ForeColor = Color.White;
             btnUpdateProfil.Location = new Point(142, 321);
-            btnUpdateProfil.Margin = new Padding(5, 5, 5, 5);
+            btnUpdateProfil.Margin = new Padding(5);
             btnUpdateProfil.Name = "btnUpdateProfil";
             btnUpdateProfil.Size = new Size(448, 46);
             btnUpdateProfil.TabIndex = 16;
@@ -75,7 +77,7 @@
             // txtAlamat
             // 
             txtAlamat.Location = new Point(217, 177);
-            txtAlamat.Margin = new Padding(5, 5, 5, 5);
+            txtAlamat.Margin = new Padding(5);
             txtAlamat.Multiline = true;
             txtAlamat.Name = "txtAlamat";
             txtAlamat.ScrollBars = ScrollBars.Vertical;
@@ -85,7 +87,7 @@
             // txtNohp
             // 
             txtNohp.Location = new Point(217, 111);
-            txtNohp.Margin = new Padding(5, 5, 5, 5);
+            txtNohp.Margin = new Padding(5);
             txtNohp.Name = "txtNohp";
             txtNohp.Size = new Size(449, 39);
             txtNohp.TabIndex = 17;
@@ -93,7 +95,7 @@
             // txtNama
             // 
             txtNama.Location = new Point(217, 55);
-            txtNama.Margin = new Padding(5, 5, 5, 5);
+            txtNama.Margin = new Padding(5);
             txtNama.Name = "txtNama";
             txtNama.Size = new Size(449, 39);
             txtNama.TabIndex = 16;
@@ -120,8 +122,8 @@
             // 
             // grpProfil
             // 
+            grpProfil.Controls.Add(dateTimeTglLahir);
             grpProfil.Controls.Add(label1);
-            grpProfil.Controls.Add(txtTanggalLahir);
             grpProfil.Controls.Add(btnUpdateProfil);
             grpProfil.Controls.Add(txtAlamat);
             grpProfil.Controls.Add(txtNohp);
@@ -130,13 +132,30 @@
             grpProfil.Controls.Add(lblNoHp);
             grpProfil.Controls.Add(lblNama);
             grpProfil.Location = new Point(23, 158);
-            grpProfil.Margin = new Padding(5, 5, 5, 5);
+            grpProfil.Margin = new Padding(5);
             grpProfil.Name = "grpProfil";
-            grpProfil.Padding = new Padding(5, 5, 5, 5);
+            grpProfil.Padding = new Padding(5);
             grpProfil.Size = new Size(788, 377);
             grpProfil.TabIndex = 18;
             grpProfil.TabStop = false;
             grpProfil.Text = "Profil";
+            // 
+            // dateTimeTglLahir
+            // 
+            dateTimeTglLahir.Location = new Point(217, 254);
+            dateTimeTglLahir.Name = "dateTimeTglLahir";
+            dateTimeTglLahir.Size = new Size(449, 39);
+            dateTimeTglLahir.TabIndex = 21;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 254);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(154, 32);
+            label1.TabIndex = 20;
+            label1.Text = "Tanggal Lahir";
             // 
             // lblNoHp
             // 
@@ -151,11 +170,11 @@
             // DaftarBuku
             // 
             DaftarBuku.Controls.Add(dgvHistori);
-            DaftarBuku.Location = new Point(23, 538);
-            DaftarBuku.Margin = new Padding(5, 5, 5, 5);
+            DaftarBuku.Location = new Point(847, 351);
+            DaftarBuku.Margin = new Padding(5);
             DaftarBuku.Name = "DaftarBuku";
-            DaftarBuku.Padding = new Padding(5, 5, 5, 5);
-            DaftarBuku.Size = new Size(1674, 519);
+            DaftarBuku.Padding = new Padding(5);
+            DaftarBuku.Size = new Size(797, 519);
             DaftarBuku.TabIndex = 17;
             DaftarBuku.TabStop = false;
             DaftarBuku.Text = "Histori Peminjaman";
@@ -165,10 +184,10 @@
             dgvHistori.BackgroundColor = Color.White;
             dgvHistori.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHistori.Location = new Point(20, 42);
-            dgvHistori.Margin = new Padding(5, 5, 5, 5);
+            dgvHistori.Margin = new Padding(5);
             dgvHistori.Name = "dgvHistori";
             dgvHistori.RowHeadersWidth = 51;
-            dgvHistori.Size = new Size(1618, 510);
+            dgvHistori.Size = new Size(768, 467);
             dgvHistori.TabIndex = 1;
             // 
             // Form
@@ -177,10 +196,10 @@
             Form.Controls.Add(textBoxJudul);
             Form.Controls.Add(lblJudul);
             Form.Location = new Point(847, 158);
-            Form.Margin = new Padding(5, 5, 5, 5);
+            Form.Margin = new Padding(5);
             Form.Name = "Form";
-            Form.Padding = new Padding(5, 5, 5, 5);
-            Form.Size = new Size(609, 174);
+            Form.Padding = new Padding(5);
+            Form.Size = new Size(797, 174);
             Form.TabIndex = 14;
             Form.TabStop = false;
             Form.Text = "Aksi";
@@ -192,17 +211,18 @@
             btnCari.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCari.ForeColor = Color.White;
             btnCari.Location = new Point(28, 107);
-            btnCari.Margin = new Padding(5, 5, 5, 5);
+            btnCari.Margin = new Padding(5);
             btnCari.Name = "btnCari";
             btnCari.Size = new Size(556, 46);
             btnCari.TabIndex = 10;
             btnCari.Text = "Cari";
             btnCari.UseVisualStyleBackColor = false;
+            btnCari.Click += btnCari_Click;
             // 
             // textBoxJudul
             // 
             textBoxJudul.Location = new Point(135, 39);
-            textBoxJudul.Margin = new Padding(5, 5, 5, 5);
+            textBoxJudul.Margin = new Padding(5);
             textBoxJudul.Name = "textBoxJudul";
             textBoxJudul.Size = new Size(449, 39);
             textBoxJudul.TabIndex = 9;
@@ -225,7 +245,7 @@
             panel1.Controls.Add(btnDaftarBuku);
             panel1.Controls.Add(pictureBox3);
             panel1.Location = new Point(0, 2);
-            panel1.Margin = new Padding(5, 5, 5, 5);
+            panel1.Margin = new Padding(5);
             panel1.Name = "panel1";
             panel1.Size = new Size(1715, 146);
             panel1.TabIndex = 16;
@@ -238,7 +258,7 @@
             btnProfil.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProfil.ForeColor = Color.White;
             btnProfil.Location = new Point(1558, 32);
-            btnProfil.Margin = new Padding(5, 5, 5, 5);
+            btnProfil.Margin = new Padding(5);
             btnProfil.Name = "btnProfil";
             btnProfil.Size = new Size(136, 80);
             btnProfil.TabIndex = 25;
@@ -253,12 +273,13 @@
             btnDaftarBuku.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDaftarBuku.ForeColor = Color.White;
             btnDaftarBuku.Location = new Point(1323, 32);
-            btnDaftarBuku.Margin = new Padding(5, 5, 5, 5);
+            btnDaftarBuku.Margin = new Padding(5);
             btnDaftarBuku.Name = "btnDaftarBuku";
             btnDaftarBuku.Size = new Size(226, 80);
             btnDaftarBuku.TabIndex = 24;
             btnDaftarBuku.Text = "Daftar Buku";
             btnDaftarBuku.UseVisualStyleBackColor = false;
+            btnDaftarBuku.Click += btnDaftarBuku_Click;
             // 
             // pictureBox3
             // 
@@ -270,34 +291,47 @@
             pictureBox3.TabIndex = 23;
             pictureBox3.TabStop = false;
             // 
-            // txtTanggalLahir
+            // btnKeluar
             // 
-            txtTanggalLahir.Location = new Point(217, 254);
-            txtTanggalLahir.Margin = new Padding(5);
-            txtTanggalLahir.Name = "txtTanggalLahir";
-            txtTanggalLahir.Size = new Size(449, 39);
-            txtTanggalLahir.TabIndex = 19;
+            btnKeluar.BackColor = Color.FromArgb(192, 0, 0);
+            btnKeluar.FlatStyle = FlatStyle.Popup;
+            btnKeluar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnKeluar.ForeColor = Color.White;
+            btnKeluar.Location = new Point(33, 569);
+            btnKeluar.Margin = new Padding(5);
+            btnKeluar.Name = "btnKeluar";
+            btnKeluar.Size = new Size(358, 46);
+            btnKeluar.TabIndex = 22;
+            btnKeluar.Text = "Keluar";
+            btnKeluar.UseVisualStyleBackColor = false;
+            btnKeluar.Click += btnKeluar_Click;
             // 
-            // label1
+            // button2
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(10, 254);
-            label1.Margin = new Padding(5, 0, 5, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(154, 32);
-            label1.TabIndex = 20;
-            label1.Text = "Tanggal Lahir";
+            button2.BackColor = Color.Teal;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(401, 569);
+            button2.Margin = new Padding(5);
+            button2.Name = "button2";
+            button2.Size = new Size(410, 46);
+            button2.TabIndex = 23;
+            button2.Text = "Cetak History";
+            button2.UseVisualStyleBackColor = false;
             // 
             // Profil
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1711, 1074);
+            ClientSize = new Size(1711, 910);
+            Controls.Add(button2);
+            Controls.Add(btnKeluar);
             Controls.Add(grpProfil);
             Controls.Add(Form);
             Controls.Add(DaftarBuku);
             Controls.Add(panel1);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "Profil";
             Text = "Profil";
             Load += Profil_Load;
@@ -333,6 +367,8 @@
         private Button btnDaftarBuku;
         private PictureBox pictureBox3;
         private Label label1;
-        private TextBox txtTanggalLahir;
+        private DateTimePicker dateTimeTglLahir;
+        private Button btnKeluar;
+        private Button button2;
     }
 }

@@ -21,6 +21,53 @@ namespace project_pemvis
             this.userId = userIdFromCaller;
         }
 
+        private void LoadHistoriPeminjaman(string judulFilter = "")
+        {
+            using (MySqlConnection conn = new MySqlConnection(DB.ConnStr))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT b.judul, p.tanggal_pinjam, p.tanggal_pengembalian
+                FROM pinjam_buku p
+                JOIN buku b ON p.buku_id = b.id
+                WHERE p.user_id = @UserId";
+
+                    if (!string.IsNullOrWhiteSpace(judulFilter))
+                    {
+                        query += " AND b.judul LIKE @Judul";
+                    }
+
+                    query += " ORDER BY p.tanggal_pinjam DESC";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+
+                    if (!string.IsNullOrWhiteSpace(judulFilter))
+                    {
+                        cmd.Parameters.AddWithValue("@Judul", "%" + judulFilter + "%");
+                    }
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvHistori.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal memuat histori peminjaman: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnCari_Click(object sender, EventArgs e)
+        {
+            string filterJudul = textBoxJudul.Text.Trim();
+            LoadHistoriPeminjaman(filterJudul);
+        }
+
+
         private void Profil_Load(object sender, EventArgs e)
         {
             using (MySqlConnection conn = new MySqlConnection(DB.ConnStr))
@@ -38,7 +85,15 @@ namespace project_pemvis
                         txtNama.Text = reader["nama"].ToString();
                         txtNohp.Text = reader["nohp"].ToString();
                         txtAlamat.Text = reader["alamat"].ToString();
-                        txtTanggalLahir.Text = reader["tanggal_lahir"].ToString(); // atau parse ke DatePicker
+                        // ✅ Pastikan formatnya benar dan tidak null
+                        if (reader["tanggal_lahir"] != DBNull.Value)
+                        {
+                            dateTimeTglLahir.Value = Convert.ToDateTime(reader["tanggal_lahir"]);
+                        }
+                        else
+                        {
+                            dateTimeTglLahir.Value = DateTime.Today;
+                        }
                     }
                     reader.Close();
                 }
@@ -47,6 +102,8 @@ namespace project_pemvis
                     MessageBox.Show("Gagal memuat data profil: " + ex.Message);
                 }
             }
+
+            LoadHistoriPeminjaman();
         }
 
         private void btnUpdateProfil_Click(object sender, EventArgs e)
@@ -54,7 +111,7 @@ namespace project_pemvis
             string nama = txtNama.Text.Trim();
             string nohp = txtNohp.Text.Trim();
             string alamat = txtAlamat.Text.Trim();
-            string tanggalLahir = txtTanggalLahir.Text; // pastikan pakai DatePicker atau format valid
+            DateTime tanggalLahir = dateTimeTglLahir.Value.Date; // ✅ ambil dari DateTimePicker
 
             using (MySqlConnection conn = new MySqlConnection(DB.ConnStr))
             {
@@ -88,7 +145,7 @@ namespace project_pemvis
                     cmd.Parameters.AddWithValue("@Nama", nama);
                     cmd.Parameters.AddWithValue("@Nohp", nohp);
                     cmd.Parameters.AddWithValue("@Alamat", alamat);
-                    cmd.Parameters.AddWithValue("@TanggalLahir", tanggalLahir);
+                    cmd.Parameters.AddWithValue("@TanggalLahir", tanggalLahir.ToString("yyyy-MM-dd"));
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Profil berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,6 +154,24 @@ namespace project_pemvis
                 {
                     MessageBox.Show("Gagal menyimpan data: " + ex.Message);
                 }
+            }
+        }
+
+        private void btnDaftarBuku_Click(object sender, EventArgs e)
+        {
+            PinjamBukuMember pinjamBukuMember = new PinjamBukuMember(userId); // Pastikan "Profil" adalah nama form yang benar
+            pinjamBukuMember.Show();
+            this.Hide(); // Menyembunyikan form saat ini
+        }
+
+        private void btnKeluar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Yakin ingin keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Login loginForm = new Login();
+                loginForm.Show();
+                this.Close();
             }
         }
     }

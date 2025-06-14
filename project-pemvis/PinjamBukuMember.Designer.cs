@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PinjamBukuMember));
-            buttonPinjam = new Button();
-            textBoxTanggalPengembalian = new TextBox();
+            btnPinjam = new Button();
             lblTanggalPengembalian = new Label();
             btnCari = new Button();
             lblTanggalPeminjaman = new Label();
             FormPeminjaman = new GroupBox();
-            textBoxTanggalPeminjaman = new TextBox();
+            dtpTanggalKembali = new DateTimePicker();
+            dtpTanggalPinjam = new DateTimePicker();
             textBoxJudul = new TextBox();
             lblJudul = new Label();
             comboBoxKategori = new ComboBox();
@@ -54,27 +54,20 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // buttonPinjam
+            // btnPinjam
             // 
-            buttonPinjam.BackColor = SystemColors.ActiveCaption;
-            buttonPinjam.FlatStyle = FlatStyle.Popup;
-            buttonPinjam.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonPinjam.ForeColor = Color.White;
-            buttonPinjam.Location = new Point(306, 416);
-            buttonPinjam.Margin = new Padding(5);
-            buttonPinjam.Name = "buttonPinjam";
-            buttonPinjam.Size = new Size(448, 46);
-            buttonPinjam.TabIndex = 13;
-            buttonPinjam.Text = "Pinjam";
-            buttonPinjam.UseVisualStyleBackColor = false;
-            // 
-            // textBoxTanggalPengembalian
-            // 
-            textBoxTanggalPengembalian.Location = new Point(306, 347);
-            textBoxTanggalPengembalian.Margin = new Padding(5);
-            textBoxTanggalPengembalian.Name = "textBoxTanggalPengembalian";
-            textBoxTanggalPengembalian.Size = new Size(449, 39);
-            textBoxTanggalPengembalian.TabIndex = 12;
+            btnPinjam.BackColor = SystemColors.ActiveCaption;
+            btnPinjam.FlatStyle = FlatStyle.Popup;
+            btnPinjam.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPinjam.ForeColor = Color.White;
+            btnPinjam.Location = new Point(306, 416);
+            btnPinjam.Margin = new Padding(5);
+            btnPinjam.Name = "btnPinjam";
+            btnPinjam.Size = new Size(448, 46);
+            btnPinjam.TabIndex = 13;
+            btnPinjam.Text = "Pinjam";
+            btnPinjam.UseVisualStyleBackColor = false;
+            btnPinjam.Click += btnPinjam_Click;
             // 
             // lblTanggalPengembalian
             // 
@@ -99,6 +92,7 @@
             btnCari.TabIndex = 10;
             btnCari.Text = "Cari";
             btnCari.UseVisualStyleBackColor = false;
+            btnCari.Click += btnCari_Click;
             // 
             // lblTanggalPeminjaman
             // 
@@ -112,11 +106,11 @@
             // 
             // FormPeminjaman
             // 
-            FormPeminjaman.Controls.Add(buttonPinjam);
-            FormPeminjaman.Controls.Add(textBoxTanggalPengembalian);
+            FormPeminjaman.Controls.Add(dtpTanggalKembali);
+            FormPeminjaman.Controls.Add(dtpTanggalPinjam);
+            FormPeminjaman.Controls.Add(btnPinjam);
             FormPeminjaman.Controls.Add(lblTanggalPengembalian);
             FormPeminjaman.Controls.Add(btnCari);
-            FormPeminjaman.Controls.Add(textBoxTanggalPeminjaman);
             FormPeminjaman.Controls.Add(textBoxJudul);
             FormPeminjaman.Controls.Add(lblTanggalPeminjaman);
             FormPeminjaman.Controls.Add(lblJudul);
@@ -131,13 +125,19 @@
             FormPeminjaman.TabStop = false;
             FormPeminjaman.Text = "Form Peminjaman";
             // 
-            // textBoxTanggalPeminjaman
+            // dtpTanggalKembali
             // 
-            textBoxTanggalPeminjaman.Location = new Point(306, 277);
-            textBoxTanggalPeminjaman.Margin = new Padding(5);
-            textBoxTanggalPeminjaman.Name = "textBoxTanggalPeminjaman";
-            textBoxTanggalPeminjaman.Size = new Size(449, 39);
-            textBoxTanggalPeminjaman.TabIndex = 9;
+            dtpTanggalKembali.Location = new Point(306, 340);
+            dtpTanggalKembali.Name = "dtpTanggalKembali";
+            dtpTanggalKembali.Size = new Size(449, 39);
+            dtpTanggalKembali.TabIndex = 15;
+            // 
+            // dtpTanggalPinjam
+            // 
+            dtpTanggalPinjam.Location = new Point(306, 277);
+            dtpTanggalPinjam.Name = "dtpTanggalPinjam";
+            dtpTanggalPinjam.Size = new Size(449, 39);
+            dtpTanggalPinjam.TabIndex = 14;
             // 
             // textBoxJudul
             // 
@@ -290,13 +290,11 @@
 
         #endregion
 
-        private Button buttonPinjam;
-        private TextBox textBoxTanggalPengembalian;
+        private Button btnPinjam;
         private Label lblTanggalPengembalian;
         private Button btnCari;
         private Label lblTanggalPeminjaman;
         private GroupBox FormPeminjaman;
-        private TextBox textBoxTanggalPeminjaman;
         private TextBox textBoxJudul;
         private Label lblJudul;
         private ComboBox comboBoxKategori;
@@ -308,5 +306,7 @@
         private PictureBox pictureBox3;
         private GroupBox DaftarBuku;
         private Panel panel1;
+        private DateTimePicker dtpTanggalKembali;
+        private DateTimePicker dtpTanggalPinjam;
     }
 }
