@@ -31,6 +31,10 @@ namespace project_pemvis
         {
             LoadDaftarBuku();
             LoadKategori();
+            dgvDaftarBuku.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            dgvDaftarBuku.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvDaftarBuku.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            dgvDaftarBuku.DefaultCellStyle.SelectionForeColor = Color.Black;
         }
 
         private void LoadKategori()

@@ -100,8 +100,8 @@ namespace project_pemvis
                         else
                         {
                             // Pindah ke form utama/admin
-                            Form1 mainForm = new Form1();
-                            mainForm.Show();
+                            Admin_Data_Buku adb = new Admin_Data_Buku();
+                            adb.Show();
                         }
 
                         this.Hide(); // Sembunyikan form login

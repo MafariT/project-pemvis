@@ -66,7 +66,8 @@ namespace project_pemvis
 
         private void Admin_Data_Buku_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
         }
@@ -338,8 +339,8 @@ namespace project_pemvis
         private void buttonPeminjamBuku_Click(object sender, EventArgs e)
         {
             Admin_Read_Peminjam arp = new Admin_Read_Peminjam();
-            this.Hide();
-            arp.Show();
+            //this.Hide();
+            arp.ShowDialog();
         }
 
         private void ClearInput()
