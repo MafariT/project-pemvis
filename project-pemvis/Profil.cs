@@ -174,5 +174,11 @@ namespace project_pemvis
                 this.Close();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RiwayatPinjam rwtForm = new RiwayatPinjam();
+            rwtForm.ShowDialog();
+        }
     }
 }

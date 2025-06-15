@@ -14,6 +14,11 @@ namespace project_pemvis
     public partial class PinjamBukuMember : Form
     {
         private int userId;
+        int currentId = 0;
+        int currentPage = 1;
+        int pageSize = 10;
+        int totalPages = 0;
+
         public PinjamBukuMember(int userIdFromLogin)
         {
             InitializeComponent();
@@ -72,27 +77,38 @@ namespace project_pemvis
                 try
                 {
                     conn.Open();
-                    string query = "SELECT id, judul, penulis, penerbit, tahun_terbit, kategori, stok FROM buku";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
+
+                    string countQuery = "SELECT COUNT(*) FROM buku";
+                    MySqlCommand countCmd = new MySqlCommand(countQuery, conn);
+                    int totalRows = Convert.ToInt32(countCmd.ExecuteScalar());
+
+                    totalPages = (int)Math.Ceiling((double)totalRows / pageSize);
+                    labelHalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                    int offset = (currentPage - 1) * pageSize;
+
+                    string query = "SELECT * FROM buku LIMIT @limit OFFSET @offset";
+                    var cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@limit", pageSize);
+                    cmd.Parameters.AddWithValue("@offset", offset);
+
+                    var adapter = new MySqlDataAdapter(cmd);
+                    var dt = new DataTable();
                     adapter.Fill(dt);
-                    // Tambahkan kolom No
-                    dt.Columns.Add("No", typeof(int));
-
-                    // Isi nomor urut secara manual
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        dt.Rows[i]["No"] = i + 1;
-                    }
-
-                    // Letakkan kolom "No" di paling depan
-                    dt.Columns["No"].SetOrdinal(0);
-
                     dgvDaftarBuku.DataSource = dt;
+
+                    dgvDaftarBuku.Columns["id"].HeaderText = "ID";
+                    dgvDaftarBuku.Columns["judul"].HeaderText = "Judul Buku";
+                    dgvDaftarBuku.Columns["penulis"].HeaderText = "Penulis";
+                    dgvDaftarBuku.Columns["penerbit"].HeaderText = "Penerbit";
+                    dgvDaftarBuku.Columns["tahun_terbit"].HeaderText = "Tahun Terbit";
+                    dgvDaftarBuku.Columns["sinopsis"].HeaderText = "Sinopsis";
+                    dgvDaftarBuku.Columns["kategori"].HeaderText = "Kategori";
+                    dgvDaftarBuku.Columns["stok"].HeaderText = "Jumlah Stok";
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Gagal memuat daftar buku: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Gagal memuat daftar buku: " + ex.Message);
                 }
             }
         }
@@ -220,6 +236,24 @@ namespace project_pemvis
                 {
                     MessageBox.Show("Gagal melakukan pencarian: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                LoadDaftarBuku();
+            }
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                LoadDaftarBuku();
             }
         }
     }

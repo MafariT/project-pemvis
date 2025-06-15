@@ -51,6 +51,9 @@
             pictureBox3 = new PictureBox();
             btnKeluar = new Button();
             button2 = new Button();
+            labelHalaman = new Label();
+            btnNext = new Button();
+            btnPrev = new Button();
             grpProfil.SuspendLayout();
             DaftarBuku.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistori).BeginInit();
@@ -169,12 +172,15 @@
             // 
             // DaftarBuku
             // 
+            DaftarBuku.Controls.Add(labelHalaman);
+            DaftarBuku.Controls.Add(btnNext);
+            DaftarBuku.Controls.Add(btnPrev);
             DaftarBuku.Controls.Add(dgvHistori);
             DaftarBuku.Location = new Point(847, 351);
             DaftarBuku.Margin = new Padding(5);
             DaftarBuku.Name = "DaftarBuku";
             DaftarBuku.Padding = new Padding(5);
-            DaftarBuku.Size = new Size(797, 519);
+            DaftarBuku.Size = new Size(797, 523);
             DaftarBuku.TabIndex = 17;
             DaftarBuku.TabStop = false;
             DaftarBuku.Text = "Histori Peminjaman";
@@ -187,7 +193,7 @@
             dgvHistori.Margin = new Padding(5);
             dgvHistori.Name = "dgvHistori";
             dgvHistori.RowHeadersWidth = 51;
-            dgvHistori.Size = new Size(768, 467);
+            dgvHistori.Size = new Size(768, 417);
             dgvHistori.TabIndex = 1;
             // 
             // Form
@@ -317,8 +323,41 @@
             button2.Name = "button2";
             button2.Size = new Size(410, 46);
             button2.TabIndex = 23;
-            button2.Text = "Cetak History";
+            button2.Text = "Cetak Riwayat";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // labelHalaman
+            // 
+            labelHalaman.AutoSize = true;
+            labelHalaman.Location = new Point(593, 473);
+            labelHalaman.Margin = new Padding(4, 0, 4, 0);
+            labelHalaman.Name = "labelHalaman";
+            labelHalaman.Size = new Size(195, 32);
+            labelHalaman.TabIndex = 36;
+            labelHalaman.Text = "Halaman 1 dari 2";
+            // 
+            // btnNext
+            // 
+            btnNext.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNext.Location = new Point(211, 468);
+            btnNext.Margin = new Padding(4);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(182, 45);
+            btnNext.TabIndex = 35;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPrev
+            // 
+            btnPrev.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPrev.Location = new Point(21, 468);
+            btnPrev.Margin = new Padding(4);
+            btnPrev.Name = "btnPrev";
+            btnPrev.Size = new Size(182, 45);
+            btnPrev.TabIndex = 34;
+            btnPrev.Text = "Prev";
+            btnPrev.UseVisualStyleBackColor = true;
             // 
             // Profil
             // 
@@ -338,6 +377,7 @@
             grpProfil.ResumeLayout(false);
             grpProfil.PerformLayout();
             DaftarBuku.ResumeLayout(false);
+            DaftarBuku.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistori).EndInit();
             Form.ResumeLayout(false);
             Form.PerformLayout();
@@ -370,5 +410,8 @@
         private DateTimePicker dateTimeTglLahir;
         private Button btnKeluar;
         private Button button2;
+        private Label labelHalaman;
+        private Button btnNext;
+        private Button btnPrev;
     }
 }
