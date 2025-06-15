@@ -65,6 +65,7 @@
             labelHalaman = new Label();
             labelJudulNavbar = new Label();
             buttonPeminjamBuku = new Button();
+            buttonKeluar = new Button();
             groupBoxInputBuku.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             groupBox1.SuspendLayout();
@@ -401,6 +402,7 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -424,7 +426,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(600, 359);
+            dataGridView1.Size = new Size(600, 341);
             dataGridView1.TabIndex = 27;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -489,11 +491,26 @@
             buttonPeminjamBuku.UseVisualStyleBackColor = false;
             buttonPeminjamBuku.Click += buttonPeminjamBuku_Click;
             // 
+            // buttonKeluar
+            // 
+            buttonKeluar.BackColor = Color.Brown;
+            buttonKeluar.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonKeluar.ForeColor = SystemColors.ButtonHighlight;
+            buttonKeluar.Location = new Point(744, 25);
+            buttonKeluar.Margin = new Padding(2);
+            buttonKeluar.Name = "buttonKeluar";
+            buttonKeluar.Size = new Size(121, 20);
+            buttonKeluar.TabIndex = 34;
+            buttonKeluar.Text = "Keluar";
+            buttonKeluar.UseVisualStyleBackColor = false;
+            buttonKeluar.Click += buttonKeluar_Click;
+            // 
             // Admin_Data_Buku
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1001, 450);
+            Controls.Add(buttonKeluar);
             Controls.Add(buttonPeminjamBuku);
             Controls.Add(labelJudulNavbar);
             Controls.Add(labelHalaman);
@@ -556,5 +573,6 @@
         private Label labelSinopsis;
         private TextBox textBoxKategori;
         private TextBox textBoxSinopsis;
+        private Button buttonKeluar;
     }
 }

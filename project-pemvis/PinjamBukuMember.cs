@@ -16,7 +16,7 @@ namespace project_pemvis
         private int userId;
         int currentId = 0;
         int currentPage = 1;
-        int pageSize = 10;
+        int pageSize = 12;
         int totalPages = 0;
 
         public PinjamBukuMember(int userIdFromLogin)
@@ -72,31 +72,50 @@ namespace project_pemvis
 
         private void LoadDaftarBuku()
         {
+            string judul = textBoxJudul.Text.Trim();
+            string kategori = comboBoxKategori.SelectedItem?.ToString() ?? "Semua";
+
+            int totalRows = GetTotalRows(judul, kategori);
+            totalPages = (int)Math.Ceiling((double)totalRows / pageSize);
+            if (currentPage > totalPages) currentPage = totalPages == 0 ? 1 : totalPages;
+
+            labelHalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+            int offset = (currentPage - 1) * pageSize;
+
             using (MySqlConnection conn = new MySqlConnection(DB.ConnStr))
             {
-                try
+                conn.Open();
+                string query = "SELECT * FROM buku WHERE 1=1";
+
+                if (!string.IsNullOrEmpty(judul))
+                    query += " AND judul LIKE @Judul";
+
+                if (!string.IsNullOrEmpty(kategori) && kategori != "Semua")
+                    query += " AND kategori = @Kategori";
+
+                query += " LIMIT @limit OFFSET @offset";
+
+                var cmd = new MySqlCommand(query, conn);
+
+                if (!string.IsNullOrEmpty(judul))
+                    cmd.Parameters.AddWithValue("@Judul", "%" + judul + "%");
+
+                if (!string.IsNullOrEmpty(kategori) && kategori != "Semua")
+                    cmd.Parameters.AddWithValue("@Kategori", kategori);
+
+                cmd.Parameters.AddWithValue("@limit", pageSize);
+                cmd.Parameters.AddWithValue("@offset", offset);
+
+                var adapter = new MySqlDataAdapter(cmd);
+                var dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvDaftarBuku.DataSource = dt;
+                dgvDaftarBuku.AllowUserToAddRows = false;
+
+                if (dt.Rows.Count > 0)
                 {
-                    conn.Open();
-
-                    string countQuery = "SELECT COUNT(*) FROM buku";
-                    MySqlCommand countCmd = new MySqlCommand(countQuery, conn);
-                    int totalRows = Convert.ToInt32(countCmd.ExecuteScalar());
-
-                    totalPages = (int)Math.Ceiling((double)totalRows / pageSize);
-                    labelHalaman.Text = $"Halaman {currentPage} dari {totalPages}";
-
-                    int offset = (currentPage - 1) * pageSize;
-
-                    string query = "SELECT * FROM buku LIMIT @limit OFFSET @offset";
-                    var cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@limit", pageSize);
-                    cmd.Parameters.AddWithValue("@offset", offset);
-
-                    var adapter = new MySqlDataAdapter(cmd);
-                    var dt = new DataTable();
-                    adapter.Fill(dt);
-                    dgvDaftarBuku.DataSource = dt;
-
                     dgvDaftarBuku.Columns["id"].HeaderText = "ID";
                     dgvDaftarBuku.Columns["judul"].HeaderText = "Judul Buku";
                     dgvDaftarBuku.Columns["penulis"].HeaderText = "Penulis";
@@ -106,12 +125,37 @@ namespace project_pemvis
                     dgvDaftarBuku.Columns["kategori"].HeaderText = "Kategori";
                     dgvDaftarBuku.Columns["stok"].HeaderText = "Jumlah Stok";
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal memuat daftar buku: " + ex.Message);
-                }
+
+                btnPrev.Enabled = currentPage > 1;
+                btnNext.Enabled = currentPage < totalPages;
             }
         }
+
+        private int GetTotalRows(string judul = "", string kategori = "")
+        {
+            using (MySqlConnection conn = new MySqlConnection(DB.ConnStr))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM buku WHERE 1=1";
+
+                if (!string.IsNullOrEmpty(judul))
+                    query += " AND judul LIKE @Judul";
+
+                if (!string.IsNullOrEmpty(kategori) && kategori != "Semua")
+                    query += " AND kategori = @Kategori";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                if (!string.IsNullOrEmpty(judul))
+                    cmd.Parameters.AddWithValue("@Judul", "%" + judul + "%");
+
+                if (!string.IsNullOrEmpty(kategori) && kategori != "Semua")
+                    cmd.Parameters.AddWithValue("@Kategori", kategori);
+
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
 
         private void btnPinjam_Click(object sender, EventArgs e)
         {
@@ -195,49 +239,10 @@ namespace project_pemvis
 
         private void btnCari_Click(object sender, EventArgs e)
         {
-            string judul = textBoxJudul.Text.Trim();
-            string kategori = comboBoxKategori.SelectedItem.ToString();
-
-            using (MySqlConnection conn = new MySqlConnection(DB.ConnStr))
-            {
-                try
-                {
-                    conn.Open();
-
-                    string query = "SELECT id, judul, penulis, penerbit, tahun_terbit, kategori, stok FROM buku WHERE 1=1";
-
-                    if (!string.IsNullOrEmpty(judul))
-                        query += " AND judul LIKE @Judul";
-
-                    if (kategori != "Semua")
-                        query += " AND kategori = @Kategori";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                    if (!string.IsNullOrEmpty(judul))
-                        cmd.Parameters.AddWithValue("@Judul", "%" + judul + "%");
-
-                    if (kategori != "Semua")
-                        cmd.Parameters.AddWithValue("@Kategori", kategori);
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Tambahkan kolom No
-                    dt.Columns.Add("No", typeof(int));
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                        dt.Rows[i]["No"] = i + 1;
-
-                    dt.Columns["No"].SetOrdinal(0);
-                    dgvDaftarBuku.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal melakukan pencarian: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            currentPage = 1;
+            LoadDaftarBuku();
         }
+
 
         private void btnNext_Click(object sender, EventArgs e)
         {

@@ -19,7 +19,7 @@ namespace project_pemvis
     {
         int currentId = 0;
         int currentPage = 1;
-        int pageSize = 10;
+        int pageSize = 12;
         int totalPages = 0;
 
         public Admin_Data_Buku()
@@ -39,6 +39,8 @@ namespace project_pemvis
                 int totalRows = Convert.ToInt32(countCmd.ExecuteScalar());
 
                 totalPages = (int)Math.Ceiling((double)totalRows / pageSize);
+                buttonPrev.Enabled = currentPage > 1;
+                buttonNext.Enabled = currentPage < totalPages;
                 labelHalaman.Text = $"Halaman {currentPage} dari {totalPages}";
 
                 int offset = (currentPage - 1) * pageSize;
@@ -165,7 +167,7 @@ namespace project_pemvis
             var result = MessageBox.Show("Apakah Anda yakin ingin menghapus buku ini?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes)
             {
-                return; 
+                return;
             }
 
             using (var conn = new MySqlConnection(DB.ConnStr))
@@ -424,6 +426,17 @@ namespace project_pemvis
 
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 return count > 0;
+            }
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Yakin ingin keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Login loginForm = new Login();
+                loginForm.Show();
+                this.Close();
             }
         }
     }
